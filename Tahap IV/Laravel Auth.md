@@ -139,7 +139,7 @@ Selanjutnya, untuk memastikan tidak terjadi kesalahan saat halaman diakses, kita
 ```
 Berikutnya, jika kita mencoba mengirimkan _form_ yang telah dibuat, kemungkinan akan muncul pesan kesalahan seperti berikut:  
 
-![[l.1.png]]
+![](asetx/l.1.png)
 
 Hal ini terjadi karena kita belum mendefinisikan _route_ untuk metode `POST` pada URL `/register`. Untuk mengatasinya, tambahkan metode `store()` pada `RegisterController`. Metode ini akan menangani permintaan _POST_ dari _form_ pendaftaran.
 
@@ -188,7 +188,7 @@ Setelah langkah-langkah di atas selesai, Anda dapat mencoba menjalankan proses _
 http://localhost:8000/register
 ```
 
-![[l.2.png]]
+![asetx/l.2.png)
 
 Jika data yang dimasukkan lolos validasi, maka sebuah entri baru akan ditambahkan ke tabel `users`. Setelah itu, pengguna akan diarahkan (_redirect_) ke halaman `/home`. Namun, karena rute untuk halaman ini belum dibuat, akan muncul pesan _not found_.
 
@@ -222,7 +222,7 @@ Route::view('/home', 'home')->name('home');
 ```
 
 Selanjutnya, jika halaman tersebut di-_reload_, akan muncul halaman sederhana yang menyapa _user_ yang sedang terautentikasi. Untuk saat ini, kita biarkan tampilannya tetap sederhana, dan nantinya dapat diperbarui sesuai kebutuhan.
-![[l.3.png]]
+![asetx/l.3.png)
 # Membuat Fungsi Login
 Setelah berhasil membuat fungsi _register_, langkah berikutnya adalah membuat fungsi _login_ agar pengguna dapat masuk ke dalam sistem. Langkah pertama adalah membuat sebuah _controller_ khusus untuk menangani proses _login_.
 
@@ -312,7 +312,7 @@ Setelah membuat _view_ `login.blade.php`, langkah selanjutnya adalah mendaftarka
 Route::get('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login');
 ```
 
-![[l.4.png]]
+![asetx/l.4.png)
 
 Setelah menyelesaikan tampilan, langkah selanjutnya adalah membuat fungsi _login_ atau mengautentikasi pengguna agar dapat mengakses aplikasi.
 
