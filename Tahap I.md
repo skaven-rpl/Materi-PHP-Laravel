@@ -1,6 +1,20 @@
-# Pembuatan Database dan Tabel
 
-## Pembuatan Database 
+# Struktur Tabel dan Relasinya
+1. **users**: Menyimpan informasi pengguna aplikasi.
+2. **kasus**: Menyimpan data kasus yang dikelola walikelas dan admin.
+3. **siswa**: Menyimpan data siswa yang terhubung dengan kasus atau kelas.
+4. **kelas**: Menyimpan informasi kelas yang dikelola oleh admin.
+5. **walikelas**: Menyimpan informasi wali kelas dan relasinya dengan kelas yang dikelola oleh admin.
+
+Relasi antar tabel:
+- **walikelas** memiliki hubungan **one-to-one** dengan **kelas**.
+- **kelas** memiliki hubungan **one-to-many** dengan **siswa**.
+- **siswa** memiliki hubungan **one-to-many** dengan **kasus**.
+
+# Langkah Penyelesaian
+## Pembuatan Database dan Tabel
+
+### Pembuatan Database 
 - **Struktur Query**:
 ```sql
 CREATE DATABASE db_sekolah;
@@ -21,7 +35,7 @@ Pada menu sidebar, akan muncul database yang telah dibuat yaitu dengan nama "**d
 digunakan untuk membuat sebuah database baru dengan nama **`db_sekolah`**. Setelah query ini dieksekusi, sistem database akan mengalokasikan ruang untuk menyimpan data yang nantinya akan dimasukkan ke dalam database **`db_sekolah`**.
 
 ---
-## Pembuatan Tabel `tb_siswa`
+### Pembuatan Tabel `tb_siswa`
 
 - **Struktur Query**:
 ``` mysql
@@ -58,7 +72,7 @@ ini digunakan untuk membuat tabel baru bernama **`tb_siswa`** dengan struktur ko
 - **`tanggal_dibuat`**: Kolom **TIMESTAMP** untuk mencatat waktu pembuatan data secara otomatis (**DEFAULT CURRENT_TIMESTAMP**).
 - **`tanggal_diperbarui`**: Kolom **TIMESTAMP** untuk mencatat waktu terakhir data diperbarui. Kolom ini akan diupdate otomatis setiap kali data diubah (**ON UPDATE CURRENT_TIMESTAMP**).
 ---
-## Pembuatan Tabel `tb_kelas`
+### Pembuatan Tabel `tb_kelas`
 
 - **Struktur**: 
 ```mysql
@@ -82,7 +96,7 @@ digunakan untuk membuat tabel baru bernama **`tb_kelas`** dengan struktur kolom 
 - **`walikelas_id`**: Kolom integer yang akan menyimpan **ID wali kelas**. Kolom ini dapat digunakan untuk membuat relasi dengan tabel lain, misalnya tabel **wali kelas**.
 
 ---
-## Pembuatan Tabel `tb_walikelas`
+### Pembuatan Tabel `tb_walikelas`
 
 - **Struktur**:
 ```mysql 
@@ -117,7 +131,7 @@ ini membuat tabel baru bernama **`tb_walikelas`** dengan struktur kolom berikut:
 - **`tanggal_diperbarui`**: Kolom **TIMESTAMP** untuk mencatat waktu terakhir data diperbarui. Secara otomatis diperbarui saat ada perubahan pada data (**ON UPDATE CURRENT_TIMESTAMP**).
 
 ---
-## Pembuatan Tabel `tb_kasus`
+### Pembuatan Tabel `tb_kasus`
 
 - **Struktur**:
 ```mysql
@@ -145,9 +159,9 @@ ini akan membuat tabel **`tb_kasus`** dengan struktur sebagai berikut:
 - **`tanggal_kasus`**: Kolom **DATE** untuk menyimpan tanggal kejadian kasus.
 
 ---
-# Relasi Tabel 
+## Relasi Tabel 
 
-## Relasi Tabel Siswa-Kelas
+### Relasi Tabel Siswa-Kelas
 Seperti yang kita ketahui, kita telah membuat tabel siswa yang mempunyai 3 kolom. Sekarang, kita ingin menghubungkan atau meng-relasikan kolom-kolom dari tabel siswa dengan ketiga tabel lainnya.
 - **Langkah - langkah :**
 Pertama, kita masuk ke halaman tabel `siswa`
@@ -162,7 +176,7 @@ Setelah di klik kita akan diarahkan ke halaman untuk membuat constraint. Pada co
 Pastikan untuk menekan tombol 'Save' setelah selesai mengkonfigurasi tabel.
 
 ---
-## Relasi Tabel Kelas-Walikelas
+### Relasi Tabel Kelas-Walikelas
 
 Pertama, kita masuk ke halaman tabel `tb_kelas`
 ![](1.15.png)
@@ -180,7 +194,7 @@ Pastikan untuk menekan tombol 'Save' setelah selesai mengkonfigurasi tabel.
 
 ---
 
-## Relasi Tabel Kasus-Siswa
+### Relasi Tabel Kasus-Siswa
 Pertama, kita masuk ke halaman tabel `tb_kasus`
 ![](1.18.png)
 
@@ -193,27 +207,27 @@ Pada constraint pertama yang akan kita buat adalah constraint antara kolom `si
 ![](1.20.png)
 
 Pastikan untuk menekan tombol 'Save' setelah selesai mengkonfigurasi tabel.
-## Hasil Relasi
+### Hasil Relasi
 ![](aset/1.21.png)
 
 Anda dapat menggunakan data dummy untuk setiap tabel yang tersedia melalui tautan berikut:  
 [Data Dummy](https://drive.google.com/drive/folders/1t5ZscyjldMd5zmA3QGUEh69a49xvWvYL?usp=sharing).
 
-## Kesimpulan
+### Kesimpulan
 Dengan membuat keempat tabel ini, kita telah membangun fondasi struktur database yang dapat menampung data siswa, kelas, wali kelas, dan catatan kasus. Struktur ini memungkinkan relasi antar-tabel sehingga data dapat dikelola secara lebih terorganisir dan relevan untuk kebutuhan aplikasi berbasis web.
 
-# Pembuatan Aplikasi Web
+## Pembuatan Aplikasi Web
 Pada bagian ini, kita akan membuat fitur-fitur utama untuk aplikasi web yang meliputi:
 
 1. Melihat daftar kasus
 2. Menambahkan kasus
 3. Mengedit kasus
-## Struktur Folder
+### Struktur Folder
 
 ![](aset/1.60.png)
 
 ---
-## Menjalankan Server Lokal
+### Menjalankan Server Lokal
 Setelah struktur folder berhasil disiapkan, langkah selanjutnya adalah menjalankan server lokal untuk menguji aplikasi Anda. Proses ini dapat dilakukan menggunakan aplikasi **XAMPP**
 
 Pertama, **Buka _Control Panel_ XAMPP di komputer Anda.**
@@ -235,7 +249,7 @@ http://localhost/sikasus/
 ```
 
 ---
-## Membuat Koneksi Database
+### Membuat Koneksi Database
 Fitur pertama yang akan kita buat adalah menampilkan daftar kasus.
 
 Sebelum kita mulai mengambil dan menampilkan data, kita perlu menghubungkan aplikasi dengan database. Buat file `db.php` dan masukkan kode berikut untuk menghubungkan aplikasi dengan MySQL. Buat file nya didalam folder `includes` sesuai dengan struktur folder yang saya berikan sebelumnya.
@@ -265,7 +279,7 @@ if (!$conn) {
 - Variabel `$host`, `$username`, `$password`, dan `$database` adalah konfigurasi koneksi database.
 - Fungsi `die()` akan menghentikan eksekusi dan menampilkan pesan jika koneksi gagal.
 ---
-## Menampilkan Daftar Kasus
+### Menampilkan Daftar Kasus
 Pertama-tama, buat fungsi yang akan digunakan untuk mengambil data dari database. Simpan fungsi ini di dalam file `function.php`.
 
 ```php
@@ -348,7 +362,7 @@ $kasus_result = fetchData($conn, $kasus_query);
 
 ![](aset/1.64.png)
 
-##### Query yang digunakan
+###### Query yang digunakan
 ```sql
 SELECT k.id_kasus, k.siswa_id, k.deskripsi_kasus, k.tanggal_kasus, s.nama_lengkap
 FROM tb_kasus k
@@ -654,7 +668,7 @@ table th, table td {
 ![](aset/1.66.png)
 
 
-## Membuat Halaman Tambah Data Kasus
+### Membuat Halaman Tambah Data Kasus
 Pertama-tama, buat file baru dengan nama `tambah_kasus.php` di dalam folder `views/kasus/`. File ini akan digunakan untuk menampilkan formulir yang memungkinkan pengguna memilih siswa, memasukkan deskripsi kasus, dan memilih tanggal kasus.
 
 **`views/kasus/tambah_kasus.php`**
@@ -803,7 +817,7 @@ $conn->close();
 
 ---
 
-## Membuat Halaman Edit Data Kasus  
+### Membuat Halaman Edit Data Kasus  
 Pertama-tama, buat file baru bernama **`edit_kasus.php`** di dalam folder **`views/kasus`**. File ini digunakan untuk menampilkan formulir pengeditan kasus berdasarkan data yang sudah adadi database.
 
 
@@ -952,7 +966,7 @@ header("Location: ./index.php");
 - **`$_SERVER['REQUEST_METHOD']`**: Mengecek apakah request menggunakan metode POST.
 - **Validasi**: Memastikan semua input diisi.
 - **Query Update**: Menggunakan `prepare` dan `bind_param` untuk memperbarui data kasus.
-## Membuat Halaman Hapus Data Kasus
+### Membuat Halaman Hapus Data Kasus
 Pertama-tama, buat file bernama **`hapus_kasus.php`** di dalam folder **`views/kasus`**. File ini bertugas untuk menghapus data kasus berdasarkan ID yang diterima melalui parameter URL.
 
 Selanjutnya, tambahkan kode berikut untuk memulai sesi PHP dan menghubungkan file database serta fungsi tambahan:
@@ -1056,5 +1070,5 @@ function jsAlert($message, $redirectUrl = null) {
 - **`addslashes()`**: Mengamankan teks pesan agar tidak terjadi error pada JavaScript.
 - **Redirect**: Jika parameter **`$redirectUrl`** diberikan, pengguna akan diarahkan ke URL yang ditentukan setelah menutup alert.
 
-## Kesimpulan
+### Kesimpulan
 Pada tahap awal pengembangan aplikasi web, fitur-fitur yang diintegrasikan meliputi kemampuan untuk melihat daftar kasus di halaman beranda yang dapat diakses oleh semua pengguna, menambahkan kasus yang hanya dapat diakses oleh wali kelas, serta mengedit kasus yang juga terbatas untuk wali kelas. Karena sistem login belum diterapkan, seluruh pengguna dapat mengakses fitur wali kelas, meskipun nantinya fitur tersebut akan dibatasi hanya untuk wali kelas setelah login diterapkan.
