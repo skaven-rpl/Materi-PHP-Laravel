@@ -584,44 +584,40 @@ Langkah pertama adalah membuat middleware yang akan mengecek apakah pengguna sud
 php artisan make:middleware CheckAuthenticate
 ```
 
-Setelah middleware berhasil dibuat, buka file `app/Http/Middleware/CheckAuthenticate.php`, kemudian tambahkan kode berikut:
+![](aset/v.1.png)
+
+Setelah middleware berhasil dibuat, buka file `app/Http/Middleware/CheckAuthenticate.php`.
+
+![](aset/av.1.png)
+
+kemudian tambahkan kode berikut:
 
 ```php
-<?php
-
-namespace App\Http\Middleware;
-
-use Closure;
-use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
-
-class CheckAuthenticate
+public function handle(Request $request, Closure $next): Response
 {
-    public function handle(Request $request, Closure $next): Response
-    {
-        // Jika pengguna sudah login (session 'role' dan 'user' ada)
-        if (session('role') && session('user')) {
-            // Cek apakah pengguna sedang mencoba mengakses halaman login
-            if ($request->routeIs('auth.login.types')) {
-                return redirect()->route('dashboard.home'); // Arahkan ke dashboard atau halaman utama
-            }
+	// Jika pengguna sudah login (session 'role' dan 'user' ada)
+	if (session('role') && session('user')) {
+		// Cek apakah pengguna sedang mencoba mengakses halaman login
+		if ($request->routeIs('auth.login.types')) {
+			return redirect()->route('dashboard.home'); // Arahkan ke dashboard atau halaman utama
+		}
 
-            return $next($request); // Lanjutkan jika bukan halaman login
-        }
+		return $next($request); // Lanjutkan jika bukan halaman login
+	}
 
-        // Jika pengguna belum login, arahkan ke halaman login
-        if (!$request->routeIs('auth.login.types')) {
-            return redirect()->route('auth.login.types')
-                ->with('error', 'Anda harus login terlebih dahulu.');
-        }
+	// Jika pengguna belum login, arahkan ke halaman login
+	if (!$request->routeIs('auth.login.types')) {
+		return redirect()->route('auth.login.types')
+			->with('error', 'Anda harus login terlebih dahulu.');
+	}
 
-        return $next($request);
-    }
+	return $next($request);
 }
 ```
 
-**Penjelasan**:
+![](aset/av.2.png)
 
+**Penjelasan**:
 - Middleware ini memeriksa apakah sesi `role` dan `user` ada, yang menunjukkan bahwa pengguna sudah login.
 - Jika pengguna sudah login, mereka dapat melanjutkan ke halaman yang diminta, kecuali halaman login.
 - Jika pengguna belum login dan mencoba mengakses halaman selain login, mereka akan diarahkan ke halaman login.
@@ -634,37 +630,29 @@ Langkah berikutnya adalah membuat middleware yang akan memeriksa peran pengguna 
 php artisan make:middleware RoleMiddleware
 ```
 
+![](aset/av.3.png)
+
 Setelah middleware berhasil dibuat, buka file `app/Http/Middleware/RoleMiddleware.php`, kemudian tambahkan kode berikut:
 
 ```php
-<?php
-
-namespace App\Http\Middleware;
-
-use Closure;
-use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
-
-class RoleMiddleware
+public function handle(Request $request, Closure $next, ...$roles)
 {
-    public function handle(Request $request, Closure $next, ...$roles)
-    {
-        $userRole = session('role');      
+	$userRole = session('role');      
 
-        if (!in_array($userRole, $roles)) {
-            $redirectRoute = $userRole === 'siswa' ? 'siswa.dashboard' : 'dashboard.home';
+	if (!in_array($userRole, $roles)) {
+		$redirectRoute = $userRole === 'siswa' ? 'siswa.dashboard' : 'dashboard.home';
 
-            return redirect()->route($redirectRoute)
-                ->with('error', 'Anda tidak memiliki akses.');
-        }
+		return redirect()->route($redirectRoute)
+			->with('error', 'Anda tidak memiliki akses.');
+	}
 
-        return $next($request);
-    }
+	return $next($request);
 }
 ```
 
-**Penjelasan**:
+![](aset/av.4.png)
 
+**Penjelasan**:
 - Middleware ini memeriksa peran pengguna (`role`) yang disimpan dalam sesi.
 - Jika peran pengguna tidak sesuai dengan peran yang diizinkan untuk mengakses halaman tersebut, maka pengguna akan diarahkan ke halaman yang sesuai berdasarkan peran mereka.
 - Jika peran cocok, maka pengguna dapat melanjutkan akses ke halaman yang diminta.
@@ -673,37 +661,23 @@ class RoleMiddleware
 
 Setelah membuat middleware, langkah selanjutnya adalah mendaftarkan middleware yang telah dibuat ke dalam aplikasi Laravel. Untuk melakukannya, buka file `bootstrap/app.php` kemudian kita perlu mengonfigurasi alias middleware yang telah dibuat. 
 
+![](aset/av.5.png)
+
 Pada kode middleware ini didaftarkan dalam aplikasi melalui konfigurasi berikut:
 
 ```php
-<?php
-
 use App\Http\Middleware\CheckAuthenticate;
 use App\Http\Middleware\RoleMiddleware;
-use Illuminate\Foundation\Application;
-use Illuminate\Foundation\Configuration\Exceptions;
-use Illuminate\Foundation\Configuration\Middleware;
 
-return Application::configure(basePath: dirname(__DIR__))
-    ->withRouting(
-        web: __DIR__ . '/../routes/web.php',
-        commands: __DIR__ . '/../routes/console.php',
-        health: '/up',
-    )
-    ->withMiddleware(function (Middleware $middleware) {
-        // Mendaftarkan alias middleware di aplikasi
-        $middleware->alias([
-            'auth' => CheckAuthenticate::class, // Alias untuk middleware autentikasi
-            'role' => RoleMiddleware::class,     // Alias untuk middleware role
-        ]);
-    })
-    ->withExceptions(function (Exceptions $exceptions) {
-        // Penanganan exception jika diperlukan
-    })->create();
+// Mendaftarkan alias middleware di aplikasi
+$middleware->alias([
+	'auth' => CheckAuthenticate::class, // Alias untuk middleware autentikasi
+	'role' => RoleMiddleware::class,     // Alias untuk middleware role
+]);
 ```
 
+![](aset/av.6.png)
 ### Penjelasan:
-
 - `withMiddleware()` adalah metode untuk mendaftarkan middleware kustom ke aplikasi Laravel.
 - Di dalam `withMiddleware()`, Anda mendefinisikan alias untuk masing-masing middleware yang telah Anda buat. Dengan mendefinisikan alias `'auth'` untuk `CheckAuthenticate` dan `'role'` untuk `RoleMiddleware`, Anda akan dapat menggunakan alias ini saat mendaftarkan middleware pada route di file `web.php`.
 - Bagian `withRouting()` mengonfigurasi file routing untuk aplikasi Laravel, sementara `withExceptions()` digunakan untuk menambahkan penanganan error jika diperlukan.
@@ -712,9 +686,160 @@ return Application::configure(basePath: dirname(__DIR__))
 
 Langkah pertama dalam membuat **Blade Layouts** adalah memastikan struktur folder dan file untuk layout sesuai. navigasikan ke folder `resources/views`. Di dalam folder tersebut, buat folder baru bernama `layouts` untuk menyimpan file layout utama.
 
+![](aset/av.7.png)
+
 Selanjutnya, buat subfolder di dalam folder `layouts` bernama `partials` yang akan digunakan untuk menyimpan komponen seperti navbar, sidebar, dan footer.
 
-Setelah struktur folder selesai dibuat, langkah berikutnya adalah membuat file layout utama. Klik kanan pada folder `layouts`, pilih **New File**, lalu beri nama file tersebut `app.blade.php`. Isi file dengan struktur HTML dasar yang mencakup penggunaan `@yield` untuk bagian yang akan diisi oleh konten halaman lain.
+![](aset/av.8.png)
+
+Kemudian, lanjutkan dengan membuat komponen seperti navbar, sidebar, dan footer. Untuk navbar, buat file baru di folder `partials` dengan nama `navbar.blade.php`.
+
+![](aset/av.9.png)
+
+Tambahkan kode untuk navbar menggunakan struktur HTML dan Bootstrap.
+
+```html
+ <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+     <!-- Navbar Brand-->
+     <a class="navbar-brand ps-3" href="index.html">SIKASUS</a>
+     <!-- Sidebar Toggle-->
+     <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+             class="fas fa-bars"></i></button>
+     <!-- Navbar Search-->
+     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+         <div class="input-group">
+             <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
+                 aria-describedby="btnNavbarSearch" />
+             <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+         </div>
+     </form>
+     <!-- Navbar-->
+     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+         <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                 data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                 <li><a class="dropdown-item" href="{{ route('auth.logout') }}">Logout</a></li>
+             </ul>
+         </li>
+     </ul>
+ </nav>
+```
+
+![](aset/av.10.png)
+
+Langkah berikutnya adalah membuat sidebar. Masih di folder `partials`, buat file baru bernama `sidebar.blade.php`.
+
+![](aset/av.11.png)
+
+Tambahkan kode HTML berikut untuk sidebar navigasi.
+
+```html
+<div id="layoutSidenav_nav">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+            <div class="nav">
+                <div class="sb-sidenav-menu-heading">Menu Utama</div>
+                @php
+                    $role = session('role');
+                @endphp
+                {{-- Role Admin --}}
+                @if (isset($role) && $role === 'admin')
+                    <a class="nav-link" href="{{ url('/dashboard') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Dashboard
+                    </a>
+
+                    <div class="sb-sidenav-menu-heading">Manajemen</div>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                        data-bs-target="#collapseManagement" aria-expanded="false" aria-controls="collapseManagement">
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                        Data Master
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseManagement" aria-labelledby="headingOne"
+                        data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="{{ url('/walikelas') }}">Wali Kelas</a>
+                            <a class="nav-link" href="{{ url('/kelas') }}">Kelas</a>
+                            <a class="nav-link" href="{{ url('/siswa') }}">Siswa</a>
+                        </nav>
+                    </div>
+
+                    <a class="nav-link" href="{{ url('/kasus') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                        Kasus Siswa
+                    </a>
+
+                    {{-- Role Wali Kelas --}}
+                @elseif (isset($role) && $role === 'walikelas')
+                    <a class="nav-link" href="{{ url('/dashboard') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Dashboard
+                    </a>
+
+                    <div class="sb-sidenav-menu-heading">Menu Walikelas</div>
+                    <a class="nav-link" href="{{ url('/siswa') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-user-graduate"></i></div>
+                        Siswa
+                    </a>
+                    <a class="nav-link" href="{{ url('/kasus') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                        Kasus Siswa
+                    </a>
+                @endif
+
+                <div class="sb-sidenav-menu-heading">Akun</div>
+                <a class="nav-link" href="{{ route('auth.logout') }}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
+                    Logout
+                </a>
+            </div>
+        </div>
+        <div class="sb-sidenav-footer">
+            <div class="small">Logged in as:</div>
+            {{ $role ?? 'Pengguna' }}
+        </div>
+    </nav>
+</div>
+
+```
+
+![](aset/av.12.png)
+
+Terakhir, tambahkan footer. Buat file baru bernama `footer.blade.php` di folder `partials`
+
+![](aset/av.14.png)
+
+Kemudian, tambahkan kode berikut:
+
+```html
+<footer class="py-4 bg-light mt-auto">
+    <div class="container-fluid px-4">
+        <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted">Copyright &copy; SIKASUS 2024</div>
+            <div>
+                <a href="#">Privacy Policy</a>
+                &middot;
+                <a href="#">Terms & Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="/admin-template-sb/js/scripts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+<script src="/admin-template-sb/js/datatables-simple-demo.js"></script>
+```
+
+![](aset/av.15.png)
+
+Setelah struktur folder selesai dibuat, langkah berikutnya adalah membuat file layout utama. Klik kanan pada folder `layouts`, pilih **New File**, lalu beri nama file tersebut `app.blade.php`.
+
+![](aset/av.16.png)
+
+Lalu, Isi file dengan struktur HTML dasar yang mencakup penggunaan `@yield` untuk bagian yang akan diisi oleh konten halaman lain.
 
 ```html
 <!DOCTYPE html>
@@ -747,81 +872,10 @@ Setelah struktur folder selesai dibuat, langkah berikutnya adalah membuat file l
         </div>
     </div>
 </body>
-
 </html>
 ```
 
-Setelah file layout utama dibuat, lanjutkan dengan membuat komponen seperti navbar, sidebar, dan footer. Untuk navbar, buat file baru di folder `partials` dengan nama `navbar.blade.php`. Tambahkan kode untuk navbar menggunakan struktur HTML dan Bootstrap.
-
-```html
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <a class="navbar-brand ps-3" href="/">SIKASUS</a>
-    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="{{ route('auth.logout') }}">Logout</a></li>
-            </ul>
-        </li>
-    </ul>
-</nav>
-```
-
-Langkah berikutnya adalah membuat sidebar. Masih di folder `partials`, buat file baru bernama `sidebar.blade.php` dan tambahkan kode HTML yang diperlukan untuk sidebar navigasi.
-
-```html
-<div id="layoutSidenav_nav">
-    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-        <div class="sb-sidenav-menu">
-            <div class="nav">
-                <div class="sb-sidenav-menu-heading">Menu Utama</div>
-                @php
-                    $role = session('role');
-                @endphp
-                @if ($role === 'admin')
-                    <a class="nav-link" href="{{ url('/dashboard') }}">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Dashboard
-                    </a>
-                @elseif ($role === 'walikelas')
-                    <a class="nav-link" href="{{ url('/dashboard') }}">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Dashboard
-                    </a>
-                @endif
-                <a class="nav-link" href="{{ route('auth.logout') }}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
-                    Logout
-                </a>
-            </div>
-        </div>
-    </nav>
-</div>
-```
-
-Terakhir, tambahkan footer. Buat file baru bernama `footer.blade.php` di folder `partials` dan tambahkan kode berikut:
-
-```html
-<footer class="py-4 bg-light mt-auto">
-    <div class="container-fluid px-4">
-        <div class="d-flex align-items-center justify-content-between small">
-            <div class="text-muted">Copyright &copy; SIKASUS 2024</div>
-            <div>
-                <a href="#">Privacy Policy</a>
-                &middot;
-                <a href="#">Terms & Conditions</a>
-            </div>
-        </div>
-    </div>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-<script src="/admin-template-sb/js/scripts.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-<script src="/admin-template-sb/js/datatables-simple-demo.js"></script>
-```
-
+![](aset/av.17.png)
 # Membuat Tampilan Homepage
 Langkah pertama dalam pembuatan tampilan homepage adalah dengan membuat controller yang menangani tampilan tersebut. Untuk itu, jalankan perintah Artisan di terminal untuk membuat controller baru bernama `DashboardController` dengan perintah:
 
@@ -829,7 +883,13 @@ Langkah pertama dalam pembuatan tampilan homepage adalah dengan membuat controll
 php artisan make:controller DashboardController
 ```
 
-Setelah controller berhasil dibuat, buka file `DashboardController.php` yang terletak di folder `app/Http/Controllers`. Di dalam controller ini, buat fungsi `index` yang akan mengembalikan tampilan homepage dengan kode berikut:
+![](aset/av.18.png)
+
+Setelah controller berhasil dibuat, buka file `DashboardController.php` yang terletak di folder `app/Http/Controllers`.
+
+![](aset/av.19.png)
+
+Di dalam controller ini, buat fungsi `index` yang akan mengembalikan tampilan homepage dengan kode berikut:
 
 ```php
 public function index()
@@ -837,6 +897,8 @@ public function index()
     return view('home');
 }
 ```
+
+![](aset/av.20.png)
 
 Selanjutnya, tambahkan fungsi `search` yang akan menangani pencarian data berdasarkan `NISN` dan `Tanggal Lahir`. Fungsi ini akan menerima input dari form yang ada di homepage, memvalidasi input tersebut, dan kemudian mencari data siswa yang sesuai dalam database. Berikut adalah kode untuk fungsi `search`:
 
@@ -851,7 +913,7 @@ public function search(Request $request)
     $nisn = $request->input('nisn');
     $tanggal_lahir = $request->input('tanggal_lahir');
 
-    $siswa = Siswa::with('kasus')
+    $siswa = \App\Models\Siswa::with('kasus')
         ->where('nisn', $nisn)
         ->where('tanggal_lahir', $tanggal_lahir)
         ->first();
@@ -867,17 +929,25 @@ public function search(Request $request)
 }
 ```
 
+![](aset/av.21.png)
+
 Setelah membuat fungsi-fungsi tersebut, langkah berikutnya adalah menambahkan routing untuk menampilkan halaman homepage dan proses pencarian data. Buka file `routes/web.php` dan tambahkan routing untuk menghubungkan URL dengan fungsi yang telah dibuat di controller, seperti ini:
 
 ```php
-Route::controller(DashboardController::class)
+Route::controller(App\Http\Controllers\DashboardController::class)
     ->group(function () {
         Route::get('/', 'index')->name('dashboard');
         Route::post('/', 'search')->name('dashboard.search');
     });
 ```
 
-Kemudian, buat tampilan homepage menggunakan Blade template di dalam folder `resources/views`. Buat file `home.blade.php` yang akan menampilkan form pencarian dan informasi terkait siswa beserta kasus yang dimilikinya jika ditemukan. Berikut adalah contoh kode untuk file `home.blade.php`:
+![](aset/av.22.png)
+
+Kemudian, buat tampilan homepage menggunakan Blade template di dalam folder `resources/views`. Buat file `home.blade.php` yang akan menampilkan form pencarian dan informasi terkait siswa beserta kasus yang dimilikinya jika ditemukan. 
+
+![](aset/av.23.png)
+
+Kemudian, tambahkan kode berikut untuk file `home.blade.php`:
 
 ```html
 <!DOCTYPE html>
@@ -965,7 +1035,11 @@ Kemudian, buat tampilan homepage menggunakan Blade template di dalam folder `res
 </html>
 ```
 
+![](aset/av.24.png)
+
 Setelah langkah-langkah di atas selesai, buka browser dan akses halaman `http://localhost:8000`. Di halaman tersebut, coba masukkan `NISN` dan `Tanggal Lahir` untuk mencari data siswa dan melihat daftar kasus yang terkait.
+
+![](aset/av.25.png)
 # Membuat Tampilan Dashboard Setelah Login
 
 Untuk memulai pembuatan tampilan dashboard setelah login, langkah pertama adalah menambahkan routing untuk memastikan bahwa hanya pengguna yang sudah login yang dapat mengakses halaman dashboard. Gunakan middleware `auth` untuk memeriksa apakah pengguna sudah terautentikasi, dan `role` untuk memeriksa peran pengguna. Di file `routes/web.php`, tambahkan kode berikut:
@@ -978,9 +1052,15 @@ Route::middleware('auth')->group(function () {
 });
 ```
 
-Dengan kode ini, hanya pengguna yang memiliki peran `admin` atau `walikelas` yang dapat mengakses halaman dashboard setelah login. Pastikan Anda telah mendefinisikan middleware `auth` dan `role` sebelumnya.
+![](aset/av.26.png)
 
-Setelah itu, buat file tampilan dashboard dengan menggunakan Blade template di dalam `resources/views`. Buat file baru bernama `dashboard.blade.php` dan isi dengan kode berikut:
+Disini hanya pengguna yang memiliki peran `admin` atau `walikelas` yang dapat mengakses halaman dashboard setelah login.
+
+Setelah itu, buat file tampilan dashboard dengan menggunakan Blade template di dalam `resources/views`. Buat file baru bernama `dashboard.blade.php`
+
+![](aset/av.29.png)
+
+Kemudian, isi dengan kode berikut:
 
 ```html
 @extends('layouts.app')
@@ -998,7 +1078,11 @@ Setelah itu, buat file tampilan dashboard dengan menggunakan Blade template di d
 @endsection
 ```
 
+![](aset/av.28.png)
+
 halaman dashboard akan menampilkan ucapan selamat datang berdasarkan peran pengguna, seperti `admin` atau `walikelas`.
+![](aset/av.30.png)
+
 
 # Membuat Fitur `Kasus`
 
@@ -1014,10 +1098,11 @@ Route::middleware('auth')->group(function () {
         ->middleware('role:admin,walikelas')
         ->name('dashboard.home');
 
-    Route::resource('kasus', KasusController::class)->except('show')->middleware('role:admin,walikelas');
+    Route::resource('kasus', \App\Http\Controllers\KasusController::class)->except('show')->middleware('role:admin,walikelas');
 });
 ```
 
+![](aset/av.31.png)
 ### Membuat Controller `Kasus`
 
 Langkah selanjutnya adalah membuat controller untuk menangani operasi CRUD pada data kasus. Gunakan Artisan untuk membuat controller baru.
@@ -1025,26 +1110,35 @@ Langkah selanjutnya adalah membuat controller untuk menangani operasi CRUD pada 
 Jalankan perintah berikut di terminal:
 
 ```bash
-php artisan make:controller KasusController
+php artisan make:controller KasusController -r
 ```
+
+![](aset/av.32.png)
 
 Kemudian, buka file `KasusController.php` yang terletak di `app/Http/Controllers`, dan tambahkan method-method untuk menangani operasi CRUD seperti `index`, `create`, `store`, `edit`, `update`, dan `destroy`.
 
-### Menampilkan Daftar Kasus (Method `index
+![](aset/av.33.png)
+
+### Menampilkan Daftar Kasus (Method `index`)
 
 Dalam method `index`, kita akan mengambil data semua kasus yang ada di database beserta data siswa yang terkait dengan menggunakan `Kasus::with('siswa')`. Data ini kemudian dikirim ke view `kasus.index` untuk ditampilkan.
 
 ```php
 public function index()
 {
-    $kasus = Kasus::with('siswa')->orderBy('tanggal_kasus', 'desc')->get();
+    $kasus = \App\Models\Kasus::with('siswa')->orderBy('tanggal_kasus', 'desc')->get();
     return view('kasus.index', compact('kasus'));
 }
 ```
 
+![](aset/av.35.png)
 ### Membuat View untuk Menampilkan Kasus (View `index`)
 
-Sekarang kita buat view untuk menampilkan daftar kasus di file `resources/views/kasus/index.blade.php`. Berikut adalah kode untuk menampilkan data kasus:
+Langkah selanjutnya adalah membuat tampilan untuk menampilkan daftar **Kasus**. Buat file `resources/views/kasus/index.blade.php`
+
+![](aset/av.37.png)
+
+Kemudian, masukkan kode untuk menampilkan data kasus:
 
 ```html
 @extends('layouts.app')
@@ -1095,6 +1189,8 @@ Sekarang kita buat view untuk menampilkan daftar kasus di file `resources/views/
 @endsection
 ```
 
+![](aset/av.38.png)
+
 ### Menambahkan Kasus Baru ke Dalam Database (Method `create` dan `store`)
 
 Untuk menambahkan kasus baru, kita buat method `create` dan `store` di `KasusController`. Method `create` akan menampilkan form untuk menambah kasus baru, sedangkan method `store` akan menyimpan data kasus ke dalam database.
@@ -1102,7 +1198,7 @@ Untuk menambahkan kasus baru, kita buat method `create` dan `store` di `KasusCon
 ```php
 public function create()
 {
-    $siswa = Siswa::all();
+    $siswa = \App\Models\Siswa::all();
     return view('kasus.create', compact('siswa'));
 }
 
@@ -1114,16 +1210,22 @@ public function store(Request $request)
         'siswa_id' => 'required|exists:siswa,id',
     ]);
 
-    Kasus::create($validated);
+    \App\Models\Kasus::create($validated);
     return redirect()->route('kasus.index')->with('success', 'Data kasus berhasil ditambahkan.');
 }
 ```
+
+![](aset/av.39.png)
 
 ### Membuat Form untuk Menambah Kasus (View `create`)
 
 Buat file `resources/views/kasus/create.blade.php` untuk menampilkan form tambah kasus.
 
-```blade
+![](aset/av.40.png)
+
+Kemudian, masukkan kode untuk form tambah kasus :
+
+```html
 @extends('layouts.app')
 
 @section('content')
@@ -1158,6 +1260,7 @@ Buat file `resources/views/kasus/create.blade.php` untuk menampilkan form tambah
 @endsection
 ```
 
+![](aset/av.41.png)
 ### 7. Edit dan Update Kasus ke Database
 
 Tambahkan method `edit` dan `update` untuk mengedit dan memperbarui data kasus di controller.
@@ -1165,8 +1268,8 @@ Tambahkan method `edit` dan `update` untuk mengedit dan memperbarui data kasus d
 ```php
 public function edit(string $id)
 {
-    $kasus = Kasus::findOrFail($id);
-    $siswa = Siswa::orderBy('nama_lengkap')->all();
+    $kasus = \App\Models\Kasus::findOrFail($id);
+    $siswa = \App\Models\Siswa::orderBy('nama_lengkap')->all();
     return view('kasus.edit', compact('kasus', 'siswa'));
 }
 
@@ -1178,15 +1281,20 @@ public function update(Request $request, string $id)
         'siswa_id' => 'required|exists:siswa,id'
     ]);
 
-$kasus = Kasus::findOrFail($id);
+$kasus = \App\Models\Kasus::findOrFail($id);
 $kasus->update($validated);
 return redirect()->route('kasus.index')->with('success', 'Data kasus berhasil diperbarui.');
 }
 ```
 
+![](aset/av.42.png)
 ### Membuat View Form Edit Kasus (View `edit`)
 
 Buat form untuk mengedit kasus di `resources/views/kasus/edit.blade.php`.
+
+![](aset/av.43.png)
+
+Kemudian, masukkan kode untuk form edit kasus :
 
 ```html
 @extends('layouts.app')
@@ -1225,6 +1333,8 @@ Buat form untuk mengedit kasus di `resources/views/kasus/edit.blade.php`.
 @endsection
 ````
 
+![](aset/av.44.png)
+
 ### Menambahkan Method Destroy di Controller
 
 Method `destroy` akan menghapus data kasus berdasarkan ID yang dipilih. Kode untuk method ini ada di dalam controller `KasusController`.
@@ -1232,12 +1342,13 @@ Method `destroy` akan menghapus data kasus berdasarkan ID yang dipilih. Kode unt
 ```php
 public function destroy(string $id)
 {
-    $kasus = Kasus::findOrFail($id);
+    $kasus = \App\Models\Kasus::findOrFail($id);
     $kasus->delete();
     return redirect()->route('kasus.index')->with('success', 'Data kasus berhasil dihapus.');
 }
 ```
 
+![](aset/av.45.png)
 ### Menambahkan Tombol Hapus di View
 
 Tombol hapus ditambahkan di view `index.blade.php` agar admin dapat menghapus kasus yang ada.
@@ -1250,21 +1361,17 @@ Tombol hapus ditambahkan di view `index.blade.php` agar admin dapat menghapus ka
 </form>
 ```
 
+![](aset/av.46.png)
 # Membuat Fitur `Siswa` 
 ### Menambahkan Routing untuk `Siswa`
 
 Langkah pertama adalah menambahkan routing yang akan menghubungkan URL dengan method di dalam controller **Siswa**. Untuk itu, buka file `routes/web.php` dan tambahkan routing berikut:
 
 ```php
-Route::middleware('auth')->group(function () {
-    Route::view('/dashboard', 'dashboard')
-        ->middleware('role:admin,walikelas')
-        ->name('dashboard.home');
-
-    Route::resource('siswa', SiswaController::class)->except('show')->middleware('role:admin,walikelas');
-});
+Route::resource('siswa', App\Http\Controllers\SiswaController::class)->except('show')->middleware('role:admin,walikelas');
 ```
 
+![](aset/av.47.png)
 ### Membuat Controller `Siswa`
 
 Setelah menambahkan routing, langkah berikutnya adalah membuat controller untuk menangani semua proses terkait data **Siswa**. Jalankan perintah berikut untuk membuat controller `SiswaController`:
@@ -1273,7 +1380,11 @@ Setelah menambahkan routing, langkah berikutnya adalah membuat controller untuk 
 php artisan make:controller SiswaController
 ```
 
+![](aset/av.49.png)
+
 Buka file `SiswaController.php` yang terletak di folder `app/Http/Controllers`. Di dalam controller ini, kita akan membuat berbagai method untuk menampilkan, menambah, mengedit, dan menghapus data **Siswa**.
+
+![](aset/av.50.png)
 
 ### Menampilkan Daftar `Siswa` (Method `index`)
 
@@ -1282,14 +1393,20 @@ Untuk menampilkan daftar siswa, buat method `index` dalam controller yang mengam
 ```php
 public function index()
 {
-    $siswa = Siswa::with('kelas')->orderBy('nama_lengkap')->get(); // Mengambil semua siswa beserta informasi kelasnya
+    $siswa = \App\Models\Siswa::with('kelas')->orderBy('nama_lengkap')->get(); // Mengambil semua siswa beserta informasi kelasnya
     return view('siswa.index', compact('siswa')); // Mengirim data siswa ke view
 }
 ```
 
+![](aset/av.51.png)
+
 ### Membuat View untuk Menampilkan `Siswa` (View `index`)
 
-Setelah controller dibuat, langkah selanjutnya adalah membuat tampilan untuk menampilkan daftar **Siswa**. Buat file `resources/views/siswa/index.blade.php` dan masukkan kode berikut:
+Setelah controller dibuat, langkah selanjutnya adalah membuat tampilan untuk menampilkan daftar **Siswa**. Buat file `resources/views/siswa/index.blade.php`
+
+![](aset/av.52.png)
+
+Kemudian, buat kode menampilkan siswa :
 
 ```html
 @extends('layouts.app')
@@ -1346,6 +1463,7 @@ Setelah controller dibuat, langkah selanjutnya adalah membuat tampilan untuk men
 @endsection
 ```
 
+![](aset/av.53.png)
 ### Menambahkan `Siswa` Baru ke Dalam Database (Method `create` dan `store`)
 
 Setelah menampilkan daftar siswa, langkah selanjutnya adalah membuat form untuk menambah data **Siswa** baru. Pertama, buat method `create` di controller untuk mengambil data kelas dan mengirimkannya ke form.
@@ -1353,10 +1471,12 @@ Setelah menampilkan daftar siswa, langkah selanjutnya adalah membuat form untuk 
 ```php
 public function create()
 {
-    $kelas = Kelas::all(); // Mengambil semua data kelas untuk dropdown
+    $kelas = \App\Models\Kelas::all(); // Mengambil semua data kelas untuk dropdown
     return view('siswa.create', compact('kelas')); // Mengirim data kelas ke form create
 }
 ```
+
+![](aset/av.54.png)
 
 Selanjutnya, buat method `store` untuk menangani penyimpanan data **Siswa** yang baru ditambahkan.
 
@@ -1372,14 +1492,19 @@ public function store(Request $request)
         'kelas_id' => 'required|exists:kelas,id_kelas', // Pastikan kelas_id ada di tabel kelas
     ]);
 
-    Siswa::create($request->all()); // Menyimpan data siswa baru
+    \App\Models\Siswa::create($request->all()); // Menyimpan data siswa baru
     return redirect()->route('siswa.index')->with('success', 'Siswa berhasil ditambahkan!');
 }
 ```
 
+![](aset/av.55.png)
 ### Membuat Form untuk Menambah `Siswa` (View `create`)
 
-Buat file `resources/views/siswa/create.blade.php` untuk menampilkan form pendaftaran **Siswa** baru. Berikut adalah kode untuk file `create.blade.php`:
+Pertama, buat file `resources/views/siswa/create.blade.php` untuk menampilkan form pendaftaran **Siswa** baru. 
+
+![](aset/av.56.png)
+
+ Kemudian, membuat kode formulir pendaftaran siswa :
 
 ```html
 @extends('layouts.app')
@@ -1433,6 +1558,11 @@ Buat file `resources/views/siswa/create.blade.php` untuk menampilkan form pendaf
 @endsection
 ```
 
+![](aset/av.57.png)
+
+![](aset/av.97.png)
+![](aset/av.96.png)
+
 ### Menambahkan Method `destroy` di Controller
 
 Untuk menghapus data siswa, kita perlu menambahkan method `destroy` di dalam controller **Siswa**. Method ini akan menangani permintaan untuk menghapus data siswa berdasarkan ID yang diberikan.
@@ -1442,12 +1572,13 @@ Buka file `SiswaController.php`, kemudian tambahkan kode berikut untuk method `d
 ```php
 public function destroy($id)
 {
-    $siswa = Siswa::findOrFail($id); // Menemukan siswa berdasarkan ID
+    $siswa = \App\Models\Siswa::findOrFail($id); // Menemukan siswa berdasarkan ID
     $siswa->delete(); // Menghapus data siswa
     return redirect()->route('siswa.index')->with('success', 'Siswa berhasil dihapus!');
 }
 ```
 
+![](aset/av.58.png)
 ### Menambahkan Tombol Hapus di View
 
 Setelah menambahkan method `destroy` di controller, langkah selanjutnya adalah menambahkan tombol hapus di view yang menampilkan daftar siswa. Tombol ini akan memanggil action `destroy` di controller dan menghapus siswa yang dipilih.
@@ -1455,19 +1586,15 @@ Setelah menambahkan method `destroy` di controller, langkah selanjutnya adalah m
 Buka file `resources/views/siswa/index.blade.php` dan tambahkan form untuk menghapus data siswa, seperti berikut:
 
 ```html
-<td>
-    <a href="{{ route('siswa.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
-    <form action="{{ route('siswa.destroy', $item->id) }}" method="POST" style="display:inline-block;">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-danger btn-sm"
-            onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
-    </form>
-</td>
+<form action="{{ route('siswa.destroy', $item->id) }}" method="POST" style="display:inline-block;">
+	@csrf
+	@method('DELETE')
+	<button type="submit" class="btn btn-danger btn-sm"
+		onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
+</form>
 ```
 
----
-
+![](aset/av.59.png)
 
 ---
 # Membuat Fitur `Walikelas`
@@ -1479,15 +1606,10 @@ Langkah pertama dalam membuat bagian `Kelas` adalah menambahkan routing di file 
 Buka file `routes/web.php` dan tambahkan kode berikut:
 
 ```php
-Route::middleware('auth')->group(function () {
-    Route::view('/dashboard', 'dashboard')
-        ->middleware('role:admin,walikelas')
-        ->name('dashboard.home');
-
-    Route::resource('walikelas', WalikelasController::class)->middleware('role:admin');
-});
+Route::resource('walikelas', \App\Http\Controllers\WalikelasController::class)->middleware('role:admin');
 ```
 
+![](aset/av.60.png)
 ### Membuat Controller `Walikelas`
 
 Selanjutnya, buat controller untuk menangani operasi CRUD terkait `Walikelas`. Gunakan perintah Artisan untuk membuat controller baru:
@@ -1496,7 +1618,11 @@ Selanjutnya, buat controller untuk menangani operasi CRUD terkait `Walikelas`. G
 php artisan make:controller WalikelasController
 ```
 
-Setelah controller berhasil dibuat, buka file `WalikelasController.php` di `app/Http/Controllers` dan tambahkan method-method berikut.
+![](aset/av.61.png)
+
+Setelah controller berhasil dibuat, buka file `WalikelasController.php` di `app/Http/Controllers` dan tambahkan method-method seperti `index` dsb.
+
+![](aset/av.62.png)
 
 ### Menampilkan Daftar `Walikelas` (Method `index`)
 
@@ -1505,14 +1631,20 @@ Di dalam method `index`, kita akan mengambil semua data walikelas yang ada dalam
 ```php
 public function index()
 {
-    $walikelas = Walikelas::all(); // Mengambil semua data walikelas
+    $walikelas = \App\Models\Walikelas::all(); // Mengambil semua data walikelas
     return view('walikelas.index', compact('walikelas')); // Mengirim data ke view
 }
 ```
 
+![](aset/av.63.png)
+
 ### Membuat View untuk Menampilkan `Walikelas` (View `index`)
 
-Buat view `index.blade.php` di dalam folder `resources/views/walikelas` yang menampilkan daftar wali kelas. Berikut adalah kode untuk file `index.blade.php`:
+Buat view `index.blade.php` di dalam folder `resources/views/walikelas` yang menampilkan daftar wali kelas.
+
+![](aset/av.64.png)
+
+Kemudian, buat kode untuk menampilkan daftar walikelas :
 
 ```html
 @extends('layouts.app')
@@ -1566,6 +1698,8 @@ Buat view `index.blade.php` di dalam folder `resources/views/walikelas` yang men
 @endsection
 ```
 
+![](aset/av.65.png)
+
 ### Menambahkan `Walikelas` Baru ke Dalam Database (Method `create` dan `store`)
 
 Selanjutnya, kita akan menambahkan method `create` untuk menampilkan form tambah wali kelas, dan `store` untuk menyimpan data wali kelas baru ke database.
@@ -1579,6 +1713,8 @@ public function create()
 }
 ```
 
+![](aset/av.66.png)
+
 Kemudian, tambahkan method `store` untuk menyimpan data wali kelas yang dikirimkan melalui form:
 
 ```php
@@ -1591,15 +1727,21 @@ public function store(Request $request)
         'alamat' => 'nullable|string',
     ]);
 
-    Walikelas::create($validatedData);
+    \App\Models\Walikelas::create($validatedData);
 
     return redirect()->route('walikelas.index')->with('success', 'Wali kelas berhasil ditambahkan.');
 }
 ```
 
+![](aset/av.67.png)
+
 ### Membuat Form untuk Menambah `Walikelas` (View `create`)
 
-Buat view untuk form tambah wali kelas. File ini akan berada di `resources/views/walikelas/create.blade.php`. Berikut adalah kodenya:
+Buat view untuk form tambah wali kelas. File ini akan berada di `resources/views/walikelas/create.blade.php`.
+
+![](aset/av.68.png)
+
+Kemudian, buat kode untuk form tambah walikelas :
 
 ```html
 @extends('layouts.app')
@@ -1639,6 +1781,8 @@ Buat view untuk form tambah wali kelas. File ini akan berada di `resources/views
 @endsection
 ```
 
+![](aset/av.69.png)
+
 ### Edit dan Update `Walikelas` ke Database (Method `edit` dan `update`)
 
 Untuk melakukan edit data wali kelas, kita perlu membuat method `edit` dan `update`. Method `edit` digunakan untuk menampilkan form edit yang sudah terisi dengan data wali kelas, sedangkan method `update` digunakan untuk menyimpan perubahan data ke dalam database.
@@ -1646,12 +1790,12 @@ Untuk melakukan edit data wali kelas, kita perlu membuat method `edit` dan `upda
 Tambahkan method `edit` dan `update` pada `WalikelasController`:
 
 ```php
-public function edit(Walikelas $walikela)
+public function edit(\App\Models\Walikelas $walikela)
 {
     return view('walikelas.edit', compact('walikela'));
 }
 
-public function update(Request $request, Walikelas $walikela)
+public function update(Request $request, \App\Models\Walikelas $walikela)
 {
     $validatedData = $request->validate([
         'nama_walikelas' => 'required|string|max:100',
@@ -1666,9 +1810,14 @@ public function update(Request $request, Walikelas $walikela)
 }
 ```
 
+![](aset/av.70.png)
 ### Membuat View Form Edit `Walikelas` (View `edit`)
 
-Sekarang, buat view untuk form edit wali kelas di `resources/views/walikelas/edit.blade.php`. Berikut adalah kodenya:
+Sekarang, buat view untuk form edit wali kelas di `resources/views/walikelas/edit.blade.php`.
+
+![](aset/av.71.png)
+
+Kemudian, membuat kode form edit walikelas :
 
 ```html
 @extends('layouts.app')
@@ -1703,19 +1852,23 @@ Sekarang, buat view untuk form edit wali kelas di `resources/views/walikelas/edi
 </div>
 
 @endsection
-````
+```
+
+![](aset/av.73.png)
 
 ### Menambahkan Method `destroy` di Controller
 
 Untuk menghapus data wali kelas, kita memerlukan method `destroy` di controller. Method ini akan menghapus data wali kelas dari database.
 
 ```php
-public function destroy(Walikelas $walikela)
+public function destroy(\App\Models\Walikelas $walikela)
 {
     $walikela->delete(); // Menghapus data wali kelas
     return redirect()->route('walikelas.index')->with('success', 'Wali kelas berhasil dihapus.'); // Redirect setelah dihapus
 }
-````
+```
+
+![](aset/av.74.png)
 
 ### Menambahkan Tombol Hapus di View
 
@@ -1729,6 +1882,7 @@ Tombol hapus sudah ditambahkan di view `walikelas.index.blade.php`, namun pastik
 </form>
 ```
 
+![](aset/av.75.png)
 
 # Membuat Fitur `Kelas`
 ### Menambahkan Routing untuk `Kelas`
@@ -1738,20 +1892,11 @@ Langkah pertama dalam membuat bagian `Kelas` adalah menambahkan routing di file 
 Tambahkan kode berikut ke dalam file `routes/web.php`:
 
 ```php
-Route::middleware('auth')->group(function () {
-    Route::view('/dashboard', 'dashboard')
-        ->middleware('role:admin,walikelas')
-        ->name('dashboard.home');
-
-    Route::resource('kasus', KasusController::class)->except('show')->middleware('role:admin,walikelas');
-
-    Route::resource('siswa', SiswaController::class)->except('show')->middleware('role:admin,walikelas');
-
-    Route::resource('walikelas', WalikelasController::class)->middleware('role:admin');
-
-    Route::resource('kelas', KelasController::class)->middleware('role:admin'); // Menambahkan resource route untuk kelas
+Route::resource('kelas', \App\Http\Controllers\KelasController::class)->middleware('role:admin');
 });
 ```
+
+![](aset/av.76.png)
 
 ### Membuat Controller `Kelas`
 
@@ -1763,15 +1908,23 @@ Gunakan perintah Artisan berikut:
 php artisan make:controller KelasController
 ```
 
-Setelah controller dibuat, buka file `KelasController.php` di folder `app/Http/Controllers` dan tambahkan method `index`, `create`, `store`, `edit`, `update`, dan `destroy` untuk menangani tampilan dan penyimpanan data kelas.
+![](aset/av.77.png)
+
+Setelah controller dibuat, buka file `KelasController.php` di folder `app/Http/Controllers`
+
+![](aset/av.78.png)
+
+Kemudian, tambahkan method `index` untuk menangani tampilan data kelas.
 
 ```php
 public function index()
 {
-    $kelas = Kelas::with('walikelas')->get(); // Mengambil semua data kelas beserta wali kelasnya
+    $kelas = \App\Models\Kelas::with('walikelas')->get(); // Mengambil semua data kelas beserta wali kelasnya
     return view('kelas.index', compact('kelas'));
 }
 ```
+
+![](aset/av.79.png)
 
 ### Menampilkan Daftar `Kelas` (Method `index`)
 
@@ -1780,14 +1933,17 @@ Setelah method `index` ditambahkan, method ini akan digunakan untuk menampilkan 
 ```php
 public function index()
 {
-    $kelas = Kelas::with('walikelas')->get(); // Mengambil semua kelas yang terhubung dengan wali kelas
+    $kelas = \App\Models\Kelas::with('walikelas')->get(); // Mengambil semua kelas yang terhubung dengan wali kelas
     return view('kelas.index', compact('kelas')); // Mengirim data kelas ke view
 }
 ```
 
+![](aset/av.80.png)
 ### Membuat View untuk Menampilkan `Kelas` (View `index`)
 
 Selanjutnya, kita buat view `index.blade.php` di folder `resources/views/kelas`. Di sini, kita akan menampilkan daftar kelas yang telah diambil dari database.
+
+![](aset/av.81.png)
 
 Buka folder `resources/views` dan buat folder `kelas`, lalu buat file `index.blade.php` di dalamnya. Berikut adalah tampilan untuk daftar kelas:
 
@@ -1837,6 +1993,8 @@ Buka folder `resources/views` dan buat folder `kelas`, lalu buat file `index.bla
 @endsection
 ```
 
+![](aset/av.82.png)
+
 ### Menambahkan `Kelas` Baru ke Dalam Database (Method `create` dan `store`)
 
 Setelah menampilkan daftar kelas, selanjutnya adalah membuat fungsi untuk menambahkan kelas baru. Kita akan membuat form untuk menambah data kelas di view `create`. Controller akan menangani penyimpanan data kelas ke dalam database.
@@ -1846,10 +2004,12 @@ Tambahkan method `create` di `KelasController` untuk menampilkan form tambah kel
 ```php
 public function create()
 {
-    $walikelas = Walikelas::all(); // Mengambil semua data wali kelas
+    $walikelas = \App\Models\Walikelas::all(); // Mengambil semua data wali kelas
     return view('kelas.create', compact('walikelas'));
 }
 ```
+
+![](aset/av.83.png)
 
 Kemudian, tambahkan method `store` untuk menyimpan kelas baru ke dalam database:
 
@@ -1861,15 +2021,19 @@ public function store(Request $request)
         'walikelas_id' => 'required|exists:walikelas,id_walikelas',
     ]);
 
-    Kelas::create($validatedData);
+    \App\Models\Kelas::create($validatedData);
 
     return redirect()->route('kelas.index')->with('success', 'Kelas berhasil ditambahkan.');
 }
 ```
 
+![](aset/av.84.png)
+
 ### Membuat Form untuk Menambah `Kelas` (View `create`)
 
 Setelah method `create` dibuat, buat view `create.blade.php` untuk menampilkan form tambah kelas.
+
+![](aset/av.85.png)
 
 Berikut adalah kode untuk `create.blade.php`:
 
@@ -1903,6 +2067,8 @@ Berikut adalah kode untuk `create.blade.php`:
 @endsection
 ```
 
+![](aset/av.86.png)
+
 ### Edit dan Update `Kelas` ke Database
 
 Langkah pertama adalah menambahkan dua method di dalam `KelasController` untuk menangani proses pengeditan dan pembaruan data kelas. Method `edit` digunakan untuk menampilkan form edit, sementara method `update` digunakan untuk memperbarui data kelas yang telah diedit.
@@ -1912,11 +2078,13 @@ Tambahkan method `edit` di dalam `KelasController`:
 ```php
 public function edit(string $id)
 {
-    $kelas = Kelas::findOrFail($id); // Mencari kelas berdasarkan ID
-    $walikelas = Walikelas::all(); // Mengambil semua wali kelas untuk dropdown
+    $kelas = \App\Models\Kelas::findOrFail($id); // Mencari kelas berdasarkan ID
+    $walikelas = \App\Models\Walikelas::all(); // Mengambil semua wali kelas untuk dropdown
     return view('kelas.edit', compact('kelas', 'walikelas')); // Menampilkan form edit dengan data kelas dan wali kelas
 }
 ```
+
+![](aset/av.87.png)
 
 Kemudian, tambahkan method `update` untuk memproses pembaruan data kelas yang telah diedit:
 
@@ -1929,16 +2097,20 @@ public function update(Request $request, string $id)
         'walikelas_id' => 'required|exists:walikelas,id_walikelas',
     ]);
 
-    $kelas = Kelas::findOrFail($id); // Menemukan kelas berdasarkan ID
+    $kelas = \App\Models\Kelas::findOrFail($id); // Menemukan kelas berdasarkan ID
     $kelas->update($validatedData); // Memperbarui data kelas dengan data yang baru
 
     return redirect()->route('kelas.index')->with('success', 'Kelas berhasil diperbarui.'); // Redirect ke daftar kelas dengan pesan sukses
 }
 ```
 
+![](aset/av.88.png)
+
 ### Membuat View Form Edit `Kelas` (View `edit`)
 
 Selanjutnya, buat tampilan untuk form edit kelas di dalam `resources/views/kelas/edit.blade.php`. View ini akan menampilkan data kelas yang sudah ada dan memungkinkan pengguna untuk memperbarui data kelas.
+
+![](aset/av.89.png)
 
 Buka folder `resources/views/kelas`, dan buat file baru `edit.blade.php`. Berikut adalah contoh kode untuk view `edit`:
 
@@ -1978,6 +2150,8 @@ Buka folder `resources/views/kelas`, dan buat file baru `edit.blade.php`. Beriku
 @endsection
 ```
 
+![](aset/av.90.png)
+
 ---
 ### Menambahkan Method `destroy` di Controller
 
@@ -1986,13 +2160,14 @@ Setelah berhasil menambahkan dan mengedit kelas, langkah terakhir adalah menamba
 ```php
 public function destroy(string $id)
 {
-    $kelas = Kelas::findOrFail($id);
+    $kelas = \App\Models\Kelas::findOrFail($id);
     $kelas->delete();
 
     return redirect()->route('kelas.index')->with('success', 'Kelas berhasil dihapus.');
 }
 ```
 
+![](aset/av.91.png)
 ### Menambahkan Tombol Hapus di View
 
 Untuk memungkinkan pengguna menghapus data kelas, tambahkan tombol hapus di view `index.blade.php`. Sudah ada form dengan metode `DELETE` yang akan mengirimkan permintaan untuk menghapus kelas:
@@ -2005,7 +2180,7 @@ Untuk memungkinkan pengguna menghapus data kelas, tambahkan tombol hapus di view
 </form>
 ```
 
-Dengan mengikuti langkah-langkah ini, Anda sekarang dapat menampilkan, menambahkan, mengedit, dan menghapus data kelas dalam aplikasi Laravel.
+![](aset/av.92.png)
 
 # Membuat Dashboard untuk `Siswa`
 
@@ -2016,19 +2191,10 @@ Langkah pertama adalah menambahkan routing yang akan mengarahkan pengguna ke hal
 Buka file `routes/web.php` dan tambahkan kode berikut:
 
 ```php
-Route::middleware('auth')->group(function () {
-    Route::view('/dashboard', 'dashboard')
-        ->middleware('role:admin,walikelas')
-        ->name('dashboard.home');
-
-    Route::resource('kasus', KasusController::class)->except('show')->middleware('role:admin,walikelas');
-    Route::resource('siswa', SiswaController::class)->except('show')->middleware('role:admin,walikelas');
-    Route::resource('walikelas', WalikelasController::class)->middleware('role:admin');
-    Route::resource('kelas', KelasController::class)->middleware('role:admin');
-    
-    Route::get('/siswa/dashboard', [SiswaController::class, 'dashboard'])->name('siswa.dashboard')->middleware('role:siswa');
-});
+Route::get('/siswa/dashboard', [\App\Http\Controller\SiswaController::class, 'dashboard'])->name('siswa.dashboard')->middleware('role:siswa');
 ```
+
+![](aset/av.93.png)
 
 ### Membuat Controller `Siswa
 
@@ -2039,14 +2205,20 @@ Buka file `SiswaController.php` dan tambahkan kode berikut untuk method `dashboa
 ```php
 public function dashboard()
 {
-    $siswa = Siswa::with(['kasus', 'kelas'])->findOrFail(session('user')['id']); // Menampilkan data siswa dengan relasi kelas
+    $siswa = \App\Models\Siswa::with(['kasus', 'kelas'])->findOrFail(session('user')['id']); // Menampilkan data siswa dengan relasi kelas
     return view('siswa.dashboard', compact('siswa')); // Mengirim data siswa ke view
 }
 ```
 
+![](aset/av.94.png)
+
 ### Membuat View untuk Menampilkan Kasus Siswa (View `dashboard`)
 
-Buat view `dashboard.blade.php` di dalam folder `resources/views/siswa` untuk menampilkan riwayat kasus siswa. Berikut adalah kode untuk file `dashboard.blade.php`:
+Buat view `dashboard.blade.php` di dalam folder `resources/views/siswa` untuk menampilkan riwayat kasus siswa. 
+
+![](aset/av.98.png)
+
+Kemudian, buat kode untuk halaman dashboard siswa :
 
 ```html
 @extends('layouts.app')
@@ -2102,6 +2274,8 @@ Buat view `dashboard.blade.php` di dalam folder `resources/views/siswa` untuk me
     </div>
 @endsection
 ```
+
+![](aset/av.72.png)
 
 **Penjelasan :**
 - **Routing:** Kita menambahkan route dengan menggunakan middleware `role:siswa`, yang memastikan hanya siswa yang dapat mengakses halaman dashboard mereka.
