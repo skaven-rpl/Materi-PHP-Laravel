@@ -1,3 +1,84 @@
+# Tabel Progres
+
+| **Topik**                                    | **Sub Topik**                                                          | **Status** |
+| -------------------------------------------- | ---------------------------------------------------------------------- | ---------- |
+| Menginstal Laravel 11                        |                                                                        |            |
+| Konfigurasi Proyek Laravel                   |                                                                        |            |
+| Membuat Model dan Migration                  |                                                                        |            |
+| Menambahkan Kolom di Dalam Migration         |                                                                        |            |
+|                                              | 1. Migration Kasus                                                     |            |
+|                                              | 2. Migration Siswa                                                     |            |
+|                                              | 3. Migration Kelas                                                     |            |
+|                                              | 4. Migration Walikelas                                                 |            |
+| Menambahkan Mass Assignment                  |                                                                        |            |
+|                                              | 1. Model Kasus                                                         |            |
+|                                              | 2. Model Siswa                                                         |            |
+|                                              | 3. Model Kelas                                                         |            |
+|                                              | 4. Model Walikelas                                                     |            |
+| Menjalankan Proses Migrate                   |                                                                        |            |
+| Menerapkan Autentikasi                       |                                                                        |            |
+| Membuat Controller Auth                      |                                                                        |            |
+| Menambahkan Fungsi di AuthController         |                                                                        |            |
+|                                              | Menampilkan Halaman Jenis Login                                        |            |
+|                                              | Menampilkan Form Login Berdasarkan Jenis                               |            |
+|                                              | Proses Login                                                           |            |
+|                                              | Proses Logout                                                          |            |
+|                                              | Membuat Routing untuk Autentikasi                                      |            |
+| Membuat View untuk Menampilkan Halaman Login |                                                                        |            |
+|                                              | Halaman Pilihan Login                                                  |            |
+|                                              | Membuat Form Login                                                     |            |
+| Membuat Middleware                           |                                                                        |            |
+|                                              | Membuat Middleware untuk Autentikasi                                   |            |
+|                                              | Membuat Middleware untuk Role                                          |            |
+|                                              | Registrasi Middleware                                                  |            |
+| Membuat Blade Layout                         |                                                                        |            |
+| Membuat Tampilan Homepage                    |                                                                        |            |
+| Membuat Tampilan Dashboard Setelah Login     |                                                                        |            |
+| Membuat Fitur Kasus                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kasus                                        |            |
+|                                              | Membuat Controller Kasus                                               |            |
+|                                              | Menampilkan Daftar Kasus (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kasus (View index)                      |            |
+|                                              | Menambahkan Kasus Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kasus (View create)                        |            |
+|                                              | Edit dan Update Kasus ke Database                                      |            |
+|                                              | Membuat View Form Edit Kasus (View edit)                               |            |
+|                                              | Menambahkan Method Destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Siswa                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Siswa                                        |            |
+|                                              | Membuat Controller Siswa                                               |            |
+|                                              | Menampilkan Daftar Siswa (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Siswa (View index)                      |            |
+|                                              | Menambahkan Siswa Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Siswa (View create)                        |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Walikelas                      |                                                                        |            |
+|                                              | Menambahkan Routing untuk Walikelas                                    |            |
+|                                              | Membuat Controller Walikelas                                           |            |
+|                                              | Menampilkan Daftar Walikelas (Method index)                            |            |
+|                                              | Membuat View untuk Menampilkan Walikelas (View index)                  |            |
+|                                              | Menambahkan Walikelas Baru ke Dalam Database (Method create dan store) |            |
+|                                              | Membuat Form untuk Menambah Walikelas (View create)                    |            |
+|                                              | Edit dan Update Walikelas ke Database (Method edit dan update)         |            |
+|                                              | Membuat View Form Edit Walikelas (View edit)                           |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Kelas                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kelas                                        |            |
+|                                              | Membuat Controller Kelas                                               |            |
+|                                              | Menampilkan Daftar Kelas (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kelas (View index)                      |            |
+|                                              | Menambahkan Kelas Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kelas (View create)                        |            |
+|                                              | Edit dan Update Kelas ke Database                                      |            |
+|                                              | Membuat View Form Edit Kelas (View edit)                               |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Dashboard untuk Siswa                |                                                                        |            |
+|                                              | Menambahkan Routing untuk `Siswa                                       |            |
+|                                              | Membuat Controller `Siswa                                              |            |
 # Menginstal Laravel 11
 
 Langkah pertama adalah memastikan bahwa **Composer** telah terinstal di komputer. **Composer** digunakan untuk mengelola dependensi dalam proyek **Laravel**.
@@ -32,6 +113,86 @@ Jika berhasil, Anda akan mendapatkan URL seperti `http://127.0.0.1:8000` yang da
 
 ![](aset/asep.3.png)
 
+| **Topik**                                    | **Sub Topik**                                                          | **Status** |
+| -------------------------------------------- | ---------------------------------------------------------------------- | ---------- |
+| Menginstal Laravel 11                        |                                                                        | ✅          |
+| Konfigurasi Proyek Laravel                   |                                                                        |            |
+| Membuat Model dan Migration                  |                                                                        |            |
+| Menambahkan Kolom di Dalam Migration         |                                                                        |            |
+|                                              | 1. Migration Kasus                                                     |            |
+|                                              | 2. Migration Siswa                                                     |            |
+|                                              | 3. Migration Kelas                                                     |            |
+|                                              | 4. Migration Walikelas                                                 |            |
+| Menambahkan Mass Assignment                  |                                                                        |            |
+|                                              | 1. Model Kasus                                                         |            |
+|                                              | 2. Model Siswa                                                         |            |
+|                                              | 3. Model Kelas                                                         |            |
+|                                              | 4. Model Walikelas                                                     |            |
+| Menjalankan Proses Migrate                   |                                                                        |            |
+| Menerapkan Autentikasi                       |                                                                        |            |
+| Membuat Controller Auth                      |                                                                        |            |
+| Menambahkan Fungsi di AuthController         |                                                                        |            |
+|                                              | Menampilkan Halaman Jenis Login                                        |            |
+|                                              | Menampilkan Form Login Berdasarkan Jenis                               |            |
+|                                              | Proses Login                                                           |            |
+|                                              | Proses Logout                                                          |            |
+|                                              | Membuat Routing untuk Autentikasi                                      |            |
+| Membuat View untuk Menampilkan Halaman Login |                                                                        |            |
+|                                              | Halaman Pilihan Login                                                  |            |
+|                                              | Membuat Form Login                                                     |            |
+| Membuat Middleware                           |                                                                        |            |
+|                                              | Membuat Middleware untuk Autentikasi                                   |            |
+|                                              | Membuat Middleware untuk Role                                          |            |
+|                                              | Registrasi Middleware                                                  |            |
+| Membuat Blade Layout                         |                                                                        |            |
+| Membuat Tampilan Homepage                    |                                                                        |            |
+| Membuat Tampilan Dashboard Setelah Login     |                                                                        |            |
+| Membuat Fitur Kasus                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kasus                                        |            |
+|                                              | Membuat Controller Kasus                                               |            |
+|                                              | Menampilkan Daftar Kasus (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kasus (View index)                      |            |
+|                                              | Menambahkan Kasus Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kasus (View create)                        |            |
+|                                              | Edit dan Update Kasus ke Database                                      |            |
+|                                              | Membuat View Form Edit Kasus (View edit)                               |            |
+|                                              | Menambahkan Method Destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Siswa                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Siswa                                        |            |
+|                                              | Membuat Controller Siswa                                               |            |
+|                                              | Menampilkan Daftar Siswa (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Siswa (View index)                      |            |
+|                                              | Menambahkan Siswa Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Siswa (View create)                        |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Walikelas                      |                                                                        |            |
+|                                              | Menambahkan Routing untuk Walikelas                                    |            |
+|                                              | Membuat Controller Walikelas                                           |            |
+|                                              | Menampilkan Daftar Walikelas (Method index)                            |            |
+|                                              | Membuat View untuk Menampilkan Walikelas (View index)                  |            |
+|                                              | Menambahkan Walikelas Baru ke Dalam Database (Method create dan store) |            |
+|                                              | Membuat Form untuk Menambah Walikelas (View create)                    |            |
+|                                              | Edit dan Update Walikelas ke Database (Method edit dan update)         |            |
+|                                              | Membuat View Form Edit Walikelas (View edit)                           |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Kelas                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kelas                                        |            |
+|                                              | Membuat Controller Kelas                                               |            |
+|                                              | Menampilkan Daftar Kelas (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kelas (View index)                      |            |
+|                                              | Menambahkan Kelas Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kelas (View create)                        |            |
+|                                              | Edit dan Update Kelas ke Database                                      |            |
+|                                              | Membuat View Form Edit Kelas (View edit)                               |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Dashboard untuk Siswa                |                                                                        |            |
+|                                              | Menambahkan Routing untuk `Siswa                                       |            |
+|                                              | Membuat Controller `Siswa                                              |            |
+
 ---
 
 # Konfigurasi Proyek Laravel
@@ -64,6 +225,88 @@ php artisan key:generate
 ![](aset/asep.6.png)
 
 Perintah ini akan membuat kunci enkripsi aplikasi dan menyimpannya di file `.env`. Kunci ini digunakan untuk menjaga keamanan data aplikasi.
+
+| **Topik**                                    | **Sub Topik**                                                          | **Status** |
+| -------------------------------------------- | ---------------------------------------------------------------------- | ---------- |
+| Menginstal Laravel 11                        |                                                                        | ✅          |
+| Konfigurasi Proyek Laravel                   |                                                                        | ✅          |
+| Membuat Model dan Migration                  |                                                                        |            |
+| Menambahkan Kolom di Dalam Migration         |                                                                        |            |
+|                                              | 1. Migration Kasus                                                     |            |
+|                                              | 2. Migration Siswa                                                     |            |
+|                                              | 3. Migration Kelas                                                     |            |
+|                                              | 4. Migration Walikelas                                                 |            |
+| Menambahkan Mass Assignment                  |                                                                        |            |
+|                                              | 1. Model Kasus                                                         |            |
+|                                              | 2. Model Siswa                                                         |            |
+|                                              | 3. Model Kelas                                                         |            |
+|                                              | 4. Model Walikelas                                                     |            |
+| Menjalankan Proses Migrate                   |                                                                        |            |
+| Menerapkan Autentikasi                       |                                                                        |            |
+| Membuat Controller Auth                      |                                                                        |            |
+| Menambahkan Fungsi di AuthController         |                                                                        |            |
+|                                              | Menampilkan Halaman Jenis Login                                        |            |
+|                                              | Menampilkan Form Login Berdasarkan Jenis                               |            |
+|                                              | Proses Login                                                           |            |
+|                                              | Proses Logout                                                          |            |
+|                                              | Membuat Routing untuk Autentikasi                                      |            |
+| Membuat View untuk Menampilkan Halaman Login |                                                                        |            |
+|                                              | Halaman Pilihan Login                                                  |            |
+|                                              | Membuat Form Login                                                     |            |
+| Membuat Middleware                           |                                                                        |            |
+|                                              | Membuat Middleware untuk Autentikasi                                   |            |
+|                                              | Membuat Middleware untuk Role                                          |            |
+|                                              | Registrasi Middleware                                                  |            |
+| Membuat Blade Layout                         |                                                                        |            |
+| Membuat Tampilan Homepage                    |                                                                        |            |
+| Membuat Tampilan Dashboard Setelah Login     |                                                                        |            |
+| Membuat Fitur Kasus                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kasus                                        |            |
+|                                              | Membuat Controller Kasus                                               |            |
+|                                              | Menampilkan Daftar Kasus (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kasus (View index)                      |            |
+|                                              | Menambahkan Kasus Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kasus (View create)                        |            |
+|                                              | Edit dan Update Kasus ke Database                                      |            |
+|                                              | Membuat View Form Edit Kasus (View edit)                               |            |
+|                                              | Menambahkan Method Destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Siswa                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Siswa                                        |            |
+|                                              | Membuat Controller Siswa                                               |            |
+|                                              | Menampilkan Daftar Siswa (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Siswa (View index)                      |            |
+|                                              | Menambahkan Siswa Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Siswa (View create)                        |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Walikelas                      |                                                                        |            |
+|                                              | Menambahkan Routing untuk Walikelas                                    |            |
+|                                              | Membuat Controller Walikelas                                           |            |
+|                                              | Menampilkan Daftar Walikelas (Method index)                            |            |
+|                                              | Membuat View untuk Menampilkan Walikelas (View index)                  |            |
+|                                              | Menambahkan Walikelas Baru ke Dalam Database (Method create dan store) |            |
+|                                              | Membuat Form untuk Menambah Walikelas (View create)                    |            |
+|                                              | Edit dan Update Walikelas ke Database (Method edit dan update)         |            |
+|                                              | Membuat View Form Edit Walikelas (View edit)                           |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Kelas                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kelas                                        |            |
+|                                              | Membuat Controller Kelas                                               |            |
+|                                              | Menampilkan Daftar Kelas (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kelas (View index)                      |            |
+|                                              | Menambahkan Kelas Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kelas (View create)                        |            |
+|                                              | Edit dan Update Kelas ke Database                                      |            |
+|                                              | Membuat View Form Edit Kelas (View edit)                               |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Dashboard untuk Siswa                |                                                                        |            |
+|                                              | Menambahkan Routing untuk `Siswa                                       |            |
+|                                              | Membuat Controller `Siswa                                              |            |
+
+---
 # Membuat Model dan Migration
 
 Langkah berikutnya adalah membuat **Model** beserta **Migration** untuk entitas `kasus`, `siswa`, `kelas`, dan `walikelas`. Jalankan perintah berikut di terminal untuk masing-masing entitas:
@@ -81,9 +324,51 @@ Perintah di atas akan membuat file **Model** di folder `app/Models` dan file **M
 
 ---
 
-## Menambahkan Kolom di Dalam Migration
+## Menambahkan Kolom di Dalam Migration  
 
-Buka setiap file _migration_ yang telah dibuat di `database/migrations`, lalu tambahkan kolom sesuai kebutuhan:
+Laravel menyediakan berbagai fungsi untuk mendefinisikan struktur kolom di database melalui migration. Fungsi-fungsi utama yang digunakan meliputi:  
+
+1. **`id()`**  
+   Membuat kolom primary key dengan auto-increment.  
+   Contoh:  
+   ```php
+   $table->id('id_kasus');
+   ```
+
+2. **`foreignId()`**  
+   Membuat kolom foreign key dengan tipe data `BIGINT` dan relasi ke tabel lain.  
+   Contoh:  
+   ```php
+   $table->foreignId('siswa_id')
+         ->constrained('siswa', 'id')
+         ->cascadeOnDelete()
+         ->cascadeOnUpdate();
+   ```
+
+3. **`string()`**  
+   Membuat kolom dengan tipe data `VARCHAR`.  
+   Contoh:  
+   ```php
+   $table->string('nama_lengkap', 100);
+   ```
+
+4. **`text()`**  
+   Membuat kolom untuk teks panjang.  
+   Contoh:  
+   ```php
+   $table->text('alamat');
+   ```
+
+5. **`timestamps()`**  
+   Menambahkan kolom otomatis `created_at` dan `updated_at`.  
+   Contoh:  
+   ```php
+   $table->timestamps();
+   ```
+
+untuk detailnya silahkan bukan halaman berikut : https://github.com/xi-rpl-1/Laravel/blob/main/Laravel%20Dasar.md#migration
+
+Setelah memahami fungsi-fungsi tersebut, berikut adalah implementasi pada setiap file migration:  
 
 ### 1. Migration `Kasus`
 ```php
@@ -98,6 +383,19 @@ public function up()
     });
 }
 ```
+
+Penjelasan:  
+Pada kode di atas, fungsi `up()` digunakan untuk mendefinisikan struktur tabel `kasus` dalam database menggunakan migration di Laravel.
+
+1. **$table->id('id_kasus')**: Membuat kolom `id_kasus` sebagai kolom primary key yang otomatis bertipe `BIGINT` dan auto increment.
+    
+2. **$table->foreignId('siswa_id')->constrained('siswa', 'id')->cascadeOnDelete()->cascadeOnUpdate()**: Menambahkan kolom `siswa_id` yang berfungsi sebagai foreign key yang mengacu pada kolom `id` di tabel `siswa`. Dengan menggunakan `constrained()`, Laravel secara otomatis menetapkan referensi yang tepat ke tabel `siswa`. `cascadeOnDelete()` dan `cascadeOnUpdate()` memastikan bahwa jika data siswa dihapus atau diperbarui, perubahan tersebut akan diterapkan secara otomatis ke data terkait di tabel `kasus`.
+    
+3. **$table->text('deskripsi_kasus')**: Menambahkan kolom `deskripsi_kasus` yang bertipe `TEXT` untuk menyimpan deskripsi dari kasus.
+    
+4. **$table->date('tanggal_kasus')**: Menambahkan kolom `tanggal_kasus` yang bertipe `DATE` untuk menyimpan tanggal terjadinya kasus.
+    
+5. **$table->timestamps()**: Menambahkan kolom `created_at` dan `updated_at` secara otomatis untuk melacak kapan data kasus dibuat dan diperbarui.
 
 ![](aset/asep.8.png)
 ### 2. Migration `Siswa`
@@ -116,6 +414,25 @@ public function up()
     });
 }
 ```
+Penjelasan:
+
+Pada kode di atas, fungsi `up()` digunakan untuk mendefinisikan struktur tabel `siswa` dalam database menggunakan migration di Laravel.
+
+1. **$table->id()**: Membuat kolom `id` sebagai kolom primary key yang otomatis bertipe `BIGINT` dan auto increment.
+    
+2. **$table->string('nama_lengkap', 100)**: Menambahkan kolom `nama_lengkap` dengan tipe data `string` dan panjang maksimal 100 karakter untuk menyimpan nama lengkap siswa.
+    
+3. **$table->string('nisn', 20)->unique()**: Menambahkan kolom `nisn` dengan tipe data `string` dan panjang maksimal 20 karakter. Kolom ini juga diatur agar memiliki nilai unik, artinya tidak ada dua siswa yang dapat memiliki `nisn` yang sama.
+    
+4. **$table->enum('jenis_kelamin', ['Laki-Laki', 'Perempuan'])**: Menambahkan kolom `jenis_kelamin` dengan tipe data `enum`, yang hanya bisa berisi dua nilai: 'Laki-Laki' atau 'Perempuan'.
+    
+5. **$table->date('tanggal_lahir')**: Menambahkan kolom `tanggal_lahir` dengan tipe data `DATE` untuk menyimpan tanggal lahir siswa.
+    
+6. **$table->text('alamat')**: Menambahkan kolom `alamat` dengan tipe data `TEXT` untuk menyimpan alamat siswa.
+    
+7. **$table->foreignId('kelas_id')->constrained('kelas', 'id_kelas')->cascadeOnDelete()->cascadeOnUpdate()**: Menambahkan kolom `kelas_id` yang berfungsi sebagai foreign key yang mengacu pada kolom `id_kelas` di tabel `kelas`. Dengan menggunakan `constrained()`, Laravel secara otomatis menetapkan referensi yang tepat ke tabel `kelas`. `cascadeOnDelete()` dan `cascadeOnUpdate()` memastikan bahwa jika data kelas dihapus atau diperbarui, perubahan tersebut akan diterapkan secara otomatis ke data siswa yang terkait.
+    
+8. **$table->timestamps()**: Menambahkan kolom `created_at` dan `updated_at` secara otomatis untuk melacak kapan data siswa dibuat dan diperbarui.
 
 ![](aset/asep.9.png)
 ### 3. Migration `Kelas`
@@ -130,6 +447,17 @@ public function up()
     });
 }
 ```
+Penjelasan:
+
+Pada kode di atas, fungsi `up()` digunakan untuk mendefinisikan struktur tabel `kelas` dalam database menggunakan migration di Laravel.
+
+1. **$table->id('id_kelas')**: Membuat kolom `id_kelas` sebagai primary key yang bertipe `BIGINT` dan auto increment, yang akan digunakan sebagai identifikasi unik untuk setiap kelas.
+    
+2. **$table->string('nama_kelas', 50)**: Menambahkan kolom `nama_kelas` dengan tipe data `string` dan panjang maksimal 50 karakter untuk menyimpan nama kelas, misalnya "X A", "X B", dan seterusnya.
+    
+3. **$table->foreignId('walikelas_id')->constrained('walikelas', 'id_walikelas')->unique()->cascadeOnDelete()->cascadeOnUpdate()**: Menambahkan kolom `walikelas_id` sebagai foreign key yang mengacu pada kolom `id_walikelas` di tabel `walikelas`. Dengan menggunakan `constrained()`, Laravel secara otomatis menetapkan referensi yang tepat ke tabel `walikelas`. `unique()` memastikan bahwa setiap kelas hanya bisa memiliki satu wali kelas, sedangkan `cascadeOnDelete()` dan `cascadeOnUpdate()` memastikan bahwa jika data wali kelas dihapus atau diperbarui, perubahan tersebut akan diterapkan secara otomatis ke data kelas yang terkait.
+    
+4. **$table->timestamps()**: Menambahkan kolom `created_at` dan `updated_at` secara otomatis untuk melacak kapan data kelas dibuat dan diperbarui.
 
 ![](aset/asep.10.png)
 ### 4. Migration `Walikelas`
@@ -149,9 +477,70 @@ public function up()
 ```
 
 ![](aset/asep.12.png)
+Penjelasan:
+
+Pada kode di atas, fungsi `up()` digunakan untuk mendefinisikan struktur tabel `walikelas` dalam database menggunakan migration di Laravel.
+
+1. **$table->id('id_walikelas')**: Membuat kolom `id_walikelas` sebagai primary key yang bertipe `BIGINT` dan auto increment. Kolom ini digunakan untuk memberikan identifikasi unik pada setiap wali kelas.
+    
+2. **$table->string('nama_walikelas', 100)**: Menambahkan kolom `nama_walikelas` dengan tipe data `string` dan panjang maksimal 100 karakter untuk menyimpan nama wali kelas.
+    
+3. **$table->string('nip', 20)->unique()->nullable()**: Menambahkan kolom `nip` dengan tipe data `string` dan panjang maksimal 20 karakter untuk menyimpan Nomor Induk Pegawai (NIP) wali kelas. Kolom ini diberi aturan `unique()` untuk memastikan tidak ada NIP yang duplikat. `nullable()` berarti kolom ini boleh kosong jika tidak ada NIP yang tercatat.
+    
+4. **$table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan'])**: Menambahkan kolom `jenis_kelamin` dengan tipe data `enum`, yang hanya bisa berisi dua nilai: 'Laki-laki' atau 'Perempuan'. Kolom ini digunakan untuk menyimpan informasi jenis kelamin wali kelas.
+    
+5. **$table->text('alamat')**: Menambahkan kolom `alamat` dengan tipe data `text`, yang digunakan untuk menyimpan alamat lengkap wali kelas.
+    
+6. **$table->timestamps()**: Menambahkan kolom `created_at` dan `updated_at` secara otomatis untuk melacak waktu pembuatan dan pembaruan data wali kelas.
 
 ---
 
+## Pengenalan Properti dan Fungsi di Model Laravel  
+
+Dalam Laravel, model digunakan untuk berinteraksi dengan tabel di database. Berikut adalah properti dan fungsi penting dalam sebuah model:  
+
+### 1. **`$table`**  
+Properti ini menentukan nama tabel yang terkait dengan model.  
+Contoh:  
+```php
+protected $table = 'kasus';
+```  
+
+### 2. **`$primaryKey`**  
+Properti ini menentukan primary key dari tabel.  
+Contoh:  
+```php
+protected $primaryKey = 'id_kasus';
+```  
+
+### 3. **`$fillable`**  
+Properti ini digunakan untuk menentukan kolom mana saja yang dapat diisi secara massal melalui Mass Assignment.  
+Contoh:  
+```php
+protected $fillable = ['deskripsi_kasus', 'tanggal_kasus', 'siswa_id'];
+```  
+
+### 4. **Relasi Antar Model**  
+Laravel menyediakan berbagai fungsi untuk mendefinisikan relasi antar tabel:  
+- **`belongsTo`**: Relasi ke model lain sebagai foreign key.  
+- **`hasMany`**: Relasi dari satu model ke banyak data di model lain.  
+- **`hasOne`**: Relasi satu ke satu.  
+
+Contoh relasi:  
+```php
+public function siswa() {
+    return $this->belongsTo(Siswa::class, 'siswa_id', 'id');
+}
+```  
+
+### 5. **`$casts`**  
+Properti ini digunakan untuk mengubah tipe data kolom saat diakses dari model.  
+Contoh:  
+```php
+protected $casts = [
+    'tanggal_kasus' => 'date',
+];
+```
 ## Menambahkan Mass Assignment
 
 Untuk setiap **Model**, tambahkan properti `$fillable` agar mendukung **Mass Assignment**. Contoh:
@@ -174,6 +563,19 @@ protected $casts = [
 	'tanggal_kasus' => 'date', // Mengubah tanggal_kasus menjadi objek Carbon
 ];
 ```
+Penjelasan:
+
+Pada kode di atas, kita mendefinisikan properti dan relasi untuk model `Kasus` di Laravel:
+
+1. **$table = 'kasus'**: Properti ini menentukan nama tabel yang digunakan oleh model ini di database. Dalam hal ini, model `Kasus` akan berhubungan dengan tabel `kasus`.
+    
+2. **$primaryKey = 'id_kasus'**: Properti ini digunakan untuk menentukan nama kolom yang berfungsi sebagai primary key untuk tabel `kasus`. Secara default, Laravel menggunakan kolom `id` sebagai primary key, tetapi di sini kita menyebutkan `id_kasus` untuk menyesuaikan dengan struktur tabel.
+    
+3. **$fillable = ['deskripsi_kasus', 'tanggal_kasus', 'siswa_id']**: Properti `$fillable` mendefinisikan kolom-kolom yang dapat diisi melalui metode Mass Assignment. Dengan menambahkan kolom `deskripsi_kasus`, `tanggal_kasus`, dan `siswa_id` ke dalam array ini, kita memastikan hanya kolom-kolom tersebut yang dapat diisi saat menggunakan metode seperti `create()` atau `update()`.
+    
+4. **public function siswa()**: Fungsi ini mendefinisikan relasi antara model `Kasus` dan model `Siswa`. Di sini, kita menggunakan metode `belongsTo()` yang menunjukkan bahwa setiap kasus terkait dengan satu siswa. Relasi ini menjelaskan bahwa `kasus` memiliki foreign key `siswa_id` yang merujuk ke primary key `id` pada tabel `siswa`.
+    
+5. **$casts = ['tanggal_kasus' => 'date']**: Properti `$casts` digunakan untuk memaksa Laravel mengonversi kolom `tanggal_kasus` menjadi tipe data `date` saat mengaksesnya. Biasanya, Laravel secara otomatis mengonversi tanggal ke objek Carbon jika tipe data kolom adalah `date` atau `datetime`, tetapi menggunakan `$casts` ini memastikan bahwa data `tanggal_kasus` akan selalu dalam format yang sesuai.
 
 ![](aset/asep.13.png)
 ### 2. Model `Siswa`
@@ -199,6 +601,19 @@ public function kasus() {
 	return $this->hasMany(Kasus::class, 'siswa_id'); // Foreign key harus 'siswa_id'
 }
 ```
+Penjelasan:
+
+Pada kode di atas, kita mendefinisikan properti dan relasi untuk model `Siswa` di Laravel:
+
+1. **$table = 'siswa'**: Properti ini menentukan nama tabel yang digunakan oleh model `Siswa` di database. Dalam hal ini, model `Siswa` akan berhubungan dengan tabel `siswa`.
+    
+2. **$primaryKey = 'id'**: Properti ini menentukan kolom yang digunakan sebagai primary key dalam tabel `siswa`. Secara default, Laravel menggunakan kolom `id` sebagai primary key, sehingga kita tidak perlu mengubahnya.
+    
+3. **$fillable = ['nama_lengkap', 'nisn', 'jenis_kelamin', 'tanggal_lahir', 'alamat', 'kelas_id']**: Properti `$fillable` mendefinisikan kolom-kolom yang dapat diisi menggunakan Mass Assignment. Dengan menyebutkan kolom-kolom ini, kita memungkinkan pengguna untuk mengisi data seperti `nama_lengkap`, `nisn`, `jenis_kelamin`, dan lainnya melalui metode `create()` atau `update()`.
+    
+4. **public function kelas()**: Fungsi ini mendefinisikan relasi antara model `Siswa` dan model `Kelas`. Di sini, kita menggunakan metode `belongsTo()` untuk menunjukkan bahwa setiap siswa terkait dengan satu kelas. Relasi ini menjelaskan bahwa kolom `kelas_id` pada tabel `siswa` merujuk ke kolom `id_kelas` pada tabel `kelas`.
+    
+5. **public function kasus()**: Fungsi ini mendefinisikan relasi antara model `Siswa` dan model `Kasus`. Kita menggunakan metode `hasMany()` untuk menunjukkan bahwa satu siswa bisa memiliki banyak kasus. Relasi ini menjelaskan bahwa kolom `siswa_id` pada tabel `kasus` merujuk ke primary key `id` pada tabel `siswa`.
 
 ![](aset/asep.14.png)
 ### 3. Model `Kelas`
@@ -215,6 +630,17 @@ public function walikelas() {
 	return $this->belongsTo(Walikelas::class, 'walikelas_id');
 }
 ```
+Penjelasan:
+
+Pada kode di atas, kita mendefinisikan properti dan relasi untuk model `Kelas` di Laravel:
+
+1. **$table = 'kelas'**: Properti ini menentukan nama tabel yang digunakan oleh model `Kelas` di database. Dalam hal ini, model `Kelas` akan berhubungan dengan tabel `kelas`.
+    
+2. **$primaryKey = 'id_kelas'**: Properti ini menentukan kolom yang digunakan sebagai primary key dalam tabel `kelas`. Secara default, Laravel menggunakan kolom `id` sebagai primary key, tetapi di sini kita mengubahnya menjadi `id_kelas`.
+    
+3. **$fillable = ['nama_kelas', 'walikelas_id']**: Properti `$fillable` mendefinisikan kolom-kolom yang dapat diisi menggunakan Mass Assignment. Kolom-kolom yang disebutkan di sini, seperti `nama_kelas` dan `walikelas_id`, dapat diisi melalui metode `create()` atau `update()` pada model `Kelas`.
+    
+4. **public function walikelas()**: Fungsi ini mendefinisikan relasi antara model `Kelas` dan model `Walikelas`. Di sini, kita menggunakan metode `belongsTo()` untuk menunjukkan bahwa setiap kelas terkait dengan satu wali kelas. Relasi ini menjelaskan bahwa kolom `walikelas_id` pada tabel `kelas` merujuk ke kolom `id_walikelas` pada tabel `walikelas`.
 
 ![](aset/asep.15.png)
 ### 4. Model `Walikelas`
@@ -231,6 +657,18 @@ protected $fillable = [
 ```
 
 ![](aset/asep.16.png)
+Penjelasan:
+
+Pada kode di atas, kita mendefinisikan properti dan pengaturan untuk model `Walikelas` di Laravel:
+
+1. **$table = 'walikelas'**: Properti ini menentukan nama tabel yang digunakan oleh model `Walikelas` di database. Dalam hal ini, model `Walikelas` berhubungan dengan tabel `walikelas`.
+    
+2. **$primaryKey = 'id_walikelas'**: Properti ini menentukan kolom yang digunakan sebagai primary key dalam tabel `walikelas`. Secara default, Laravel menggunakan kolom `id` sebagai primary key, tetapi di sini kita mengubahnya menjadi `id_walikelas`.
+    
+3. **$fillable = ['nama_walikelas', 'nip', 'jenis_kelamin', 'alamat']**: Properti `$fillable` mendefinisikan kolom-kolom yang dapat diisi menggunakan Mass Assignment. Kolom-kolom yang disebutkan di sini, seperti `nama_walikelas`, `nip`, `jenis_kelamin`, dan `alamat`, dapat diisi melalui metode `create()` atau `update()` pada model `Walikelas`. Dengan cara ini, Laravel melindungi dari pengisian kolom yang tidak diinginkan secara otomatis.
+    
+
+Properti dan metode ini membantu Laravel dalam pengelolaan data dan relasi antar tabel dengan lebih mudah dan aman.
 
 ---
 ## Menjalankan Proses Migrate
@@ -246,6 +684,151 @@ Jika berhasil, tabel `kasus`, `siswa`, `kelas`, dan `walikelas` akan dibuat di d
 ![](aset/asep.17.png)
 
 ![](aset/asep.19.png)
+
+## Fitur Lain Selain Migrate di Laravel
+
+Laravel menyediakan berbagai fitur selain **migrate** untuk mempermudah pengelolaan database:
+
+### 1. **Rollback Migration**
+
+Untuk membatalkan migrasi terakhir yang dijalankan, gunakan perintah **migrate:rollback**. Perintah ini akan mengembalikan perubahan yang dilakukan oleh migrasi terakhir.
+
+```bash
+php artisan migrate:rollback
+```
+
+---
+
+### 2. **Reset Migration**
+
+Dengan **migrate:reset**, Anda dapat menghapus seluruh tabel yang dibuat oleh migrasi dan mengembalikan database ke keadaan awal.
+
+```bash
+php artisan migrate:reset
+```
+
+---
+
+### 3. **Refresh Migration**
+
+**migrate:refresh** akan menghapus tabel yang ada dan langsung menjalankan ulang semua migrasi untuk memperbarui struktur database.
+
+```bash
+php artisan migrate:refresh
+```
+
+---
+
+### 4. **Seed Database**
+
+Setelah migrasi, gunakan **db:seed** untuk mengisi tabel dengan data awal yang telah ditentukan di seeder.
+
+```bash
+php artisan db:seed
+```
+
+---
+
+### 5. **Create Migration dan Seeder**
+
+Gunakan **make:migration** untuk membuat migrasi baru, dan **make:seeder** untuk membuat seeder baru.
+
+```bash
+php artisan make:migration create_nama_tabel
+php artisan make:seeder NamaSeeder
+```
+
+---
+
+### 6. **Database Factories**
+
+**Factories** memungkinkan Anda untuk membuat data palsu yang berguna untuk pengujian atau pengembangan.
+
+```bash
+php artisan make:factory NamaFactory
+```
+
+---
+
+| **Topik**                                    | **Sub Topik**                                                          | **Status** |
+| -------------------------------------------- | ---------------------------------------------------------------------- | ---------- |
+| Menginstal Laravel 11                        |                                                                        | ✅          |
+| Konfigurasi Proyek Laravel                   |                                                                        | ✅          |
+| Membuat Model dan Migration                  |                                                                        | ✅          |
+| Menambahkan Kolom di Dalam Migration         |                                                                        | ✅          |
+|                                              | 1. Migration Kasus                                                     | ✅          |
+|                                              | 2. Migration Siswa                                                     | ✅          |
+|                                              | 3. Migration Kelas                                                     | ✅          |
+|                                              | 4. Migration Walikelas                                                 | ✅          |
+| Menambahkan Mass Assignment                  |                                                                        | ✅          |
+|                                              | 1. Model Kasus                                                         | ✅          |
+|                                              | 2. Model Siswa                                                         | ✅          |
+|                                              | 3. Model Kelas                                                         | ✅          |
+|                                              | 4. Model Walikelas                                                     | ✅          |
+| Menjalankan Proses Migrate                   |                                                                        | ✅          |
+| Menerapkan Autentikasi                       |                                                                        |            |
+| Membuat Controller Auth                      |                                                                        |            |
+| Menambahkan Fungsi di AuthController         |                                                                        |            |
+|                                              | Menampilkan Halaman Jenis Login                                        |            |
+|                                              | Menampilkan Form Login Berdasarkan Jenis                               |            |
+|                                              | Proses Login                                                           |            |
+|                                              | Proses Logout                                                          |            |
+|                                              | Membuat Routing untuk Autentikasi                                      |            |
+| Membuat View untuk Menampilkan Halaman Login |                                                                        |            |
+|                                              | Halaman Pilihan Login                                                  |            |
+|                                              | Membuat Form Login                                                     |            |
+| Membuat Middleware                           |                                                                        |            |
+|                                              | Membuat Middleware untuk Autentikasi                                   |            |
+|                                              | Membuat Middleware untuk Role                                          |            |
+|                                              | Registrasi Middleware                                                  |            |
+| Membuat Blade Layout                         |                                                                        |            |
+| Membuat Tampilan Homepage                    |                                                                        |            |
+| Membuat Tampilan Dashboard Setelah Login     |                                                                        |            |
+| Membuat Fitur Kasus                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kasus                                        |            |
+|                                              | Membuat Controller Kasus                                               |            |
+|                                              | Menampilkan Daftar Kasus (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kasus (View index)                      |            |
+|                                              | Menambahkan Kasus Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kasus (View create)                        |            |
+|                                              | Edit dan Update Kasus ke Database                                      |            |
+|                                              | Membuat View Form Edit Kasus (View edit)                               |            |
+|                                              | Menambahkan Method Destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Siswa                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Siswa                                        |            |
+|                                              | Membuat Controller Siswa                                               |            |
+|                                              | Menampilkan Daftar Siswa (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Siswa (View index)                      |            |
+|                                              | Menambahkan Siswa Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Siswa (View create)                        |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Walikelas                      |                                                                        |            |
+|                                              | Menambahkan Routing untuk Walikelas                                    |            |
+|                                              | Membuat Controller Walikelas                                           |            |
+|                                              | Menampilkan Daftar Walikelas (Method index)                            |            |
+|                                              | Membuat View untuk Menampilkan Walikelas (View index)                  |            |
+|                                              | Menambahkan Walikelas Baru ke Dalam Database (Method create dan store) |            |
+|                                              | Membuat Form untuk Menambah Walikelas (View create)                    |            |
+|                                              | Edit dan Update Walikelas ke Database (Method edit dan update)         |            |
+|                                              | Membuat View Form Edit Walikelas (View edit)                           |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Kelas                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kelas                                        |            |
+|                                              | Membuat Controller Kelas                                               |            |
+|                                              | Menampilkan Daftar Kelas (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kelas (View index)                      |            |
+|                                              | Menambahkan Kelas Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kelas (View create)                        |            |
+|                                              | Edit dan Update Kelas ke Database                                      |            |
+|                                              | Membuat View Form Edit Kelas (View edit)                               |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Dashboard untuk Siswa                |                                                                        |            |
+|                                              | Menambahkan Routing untuk `Siswa                                       |            |
+|                                              | Membuat Controller `Siswa                                              |            |
 
 ---
 # Menerapkan Autentikasi
@@ -275,6 +858,8 @@ private $titles = [
 'admin' => ['title' => 'Login Admin', 'placeholder' => 'Masukkan Nama Pengguna']
 ];
 ```
+
+Penggunaan **private** pada variabel `$titles` berguna untuk membatasi akses ke variabel ini hanya di dalam class **AuthController**. Artinya, variabel ini tidak dapat diakses atau dimodifikasi dari luar class ini, yang memberikan kontrol penuh terhadap data tersebut dan meningkatkan keamanan aplikasi.
 
 Disini kita membuat variabel untuk menentukan jenis jenis login sesuai rolenya.
 ![](aset/asep.20.png)
@@ -321,6 +906,80 @@ public function showLoginForm($type)
 Pada fungsi ini, kita memeriksa apakah jenis login yang diminta ada dalam array `$this->titles`. Jika jenis login tidak ditemukan, maka akan ditampilkan halaman 404. Jika valid, fungsi ini akan mengirimkan data untuk digunakan di tampilan `auth.login-form`, termasuk tipe login, judul halaman, dan placeholder untuk input username.
 
 ---
+
+### Fungsi Validasi di Laravel
+
+Laravel menyediakan berbagai aturan validasi untuk memverifikasi input pengguna dengan cara yang mudah dan efisien. Aturan validasi ini bisa digunakan baik dalam form request maupun di dalam controller. Berikut adalah beberapa aturan validasi yang sering digunakan:
+
+1. **`required`**  
+   Aturan ini memastikan bahwa kolom yang divalidasi tidak boleh kosong. Jika kolom tidak diisi, maka akan muncul pesan error.  
+   Contoh:  
+   ```php
+   'username' => 'required'
+   ```
+
+2. **`string`**  
+   Aturan ini memastikan bahwa kolom berisi data bertipe string (teks). Ini penting untuk memverifikasi bahwa input yang diterima sesuai dengan format yang diinginkan.  
+   Contoh:  
+   ```php
+   'username' => 'string'
+   ```
+
+3. **`numeric`**  
+   Aturan ini memastikan bahwa kolom hanya berisi angka. Misalnya, jika Anda menginginkan ID atau nomor telepon, aturan ini akan memastikan hanya angka yang diterima.  
+   Contoh:  
+   ```php
+   'phone_number' => 'numeric'
+   ```
+
+4. **`in`**  
+   Aturan ini memastikan bahwa nilai kolom adalah salah satu dari sekumpulan nilai yang diperbolehkan. Biasanya digunakan untuk menentukan nilai tertentu pada dropdown atau pilihan tertentu.  
+   Contoh:  
+   ```php
+   'role' => 'required|in:siswa,walikelas,admin'
+   ```
+
+5. **`unique`**  
+   Aturan ini memastikan bahwa nilai kolom unik di dalam tabel tertentu, berguna untuk memastikan bahwa username atau email tidak terduplikasi di database.  
+   Contoh:  
+   ```php
+   'email' => 'required|unique:users,email'
+   ```
+
+6. **`email`**  
+   Aturan ini memastikan bahwa kolom berisi format alamat email yang valid. Ini digunakan untuk memverifikasi bahwa input adalah email yang benar.  
+   Contoh:  
+   ```php
+   'email' => 'required|email'
+   ```
+
+7. **`confirmed`**  
+   Aturan ini digunakan untuk memverifikasi bahwa dua kolom memiliki nilai yang sama. Ini biasanya digunakan pada form registrasi untuk memastikan bahwa kolom `password` dan `password_confirmation` memiliki nilai yang sama.  
+   Contoh:  
+   ```php
+   'password' => 'required|confirmed'
+   ```
+
+8. **`min` dan `max`**  
+   Aturan `min` dan `max` digunakan untuk memvalidasi panjang karakter dari kolom. Anda bisa menentukan jumlah minimal dan maksimal karakter yang diizinkan.  
+   Contoh:  
+   ```php
+   'password' => 'required|min:8|max:16'
+   ```
+
+9. **`date`**  
+   Aturan ini memastikan bahwa input yang diterima memiliki format tanggal yang valid.  
+   Contoh:  
+   ```php
+   'birthdate' => 'required|date'
+   ```
+
+10. **`exists`**  
+    Aturan ini memastikan bahwa nilai kolom ada dalam tabel tertentu. Biasanya digunakan untuk memverifikasi bahwa input merujuk ke data yang ada di database.  
+    Contoh:  
+    ```php
+    'user_id' => 'required|exists:users,id'
+    ```
 
 ### Proses Login
 
@@ -410,7 +1069,25 @@ return match ($type) {
 ![](aset/asep.23.png)
 
 **Penjelasan**:  
-Di dalam fungsi `login`, kita pertama-tama memvalidasi input dari form. Jika validasi gagal, sistem akan memberikan pesan kesalahan. Setelah itu, fungsi `authenticateUser` akan memeriksa apakah kredensial yang diberikan cocok dengan data yang ada di database. Jika cocok, pengguna akan diarahkan ke halaman dashboard, dan sesi login akan diperbarui. Jika gagal, pesan kesalahan akan ditampilkan.
+1. **Fungsi `login(Request $request)`**:
+    
+    - **Validasi Input**: Fungsi ini dimulai dengan melakukan validasi terhadap data yang diterima dari request. Tiga parameter yang divalidasi adalah `type`, `username`, dan `password`. `type` harus berupa salah satu dari `siswa`, `walikelas`, atau `admin`. `username` dan `password` harus berupa string dan tidak boleh kosong.
+    - **Proses Autentikasi Pengguna**: Setelah validasi, fungsi ini akan mengambil nilai `type`, `username`, dan `password`, kemudian memanggil metode `authenticateUser` untuk memeriksa kredensial pengguna.
+    - **Menyimpan Data Pengguna di Sesi**: Jika pengguna berhasil diautentikasi (ditemukan dalam database), data pengguna dan jenis peran (`role`) disimpan dalam sesi menggunakan `session()`. Sesi kemudian diperbarui dengan `session()->regenerate()`, dan pengguna diarahkan ke halaman `dashboard`.
+    - **Menangani Kesalahan Login**: Jika login gagal, maka akan ditampilkan pesan kesalahan yang menjelaskan bahwa `username` atau `password` salah. Jenis label untuk `username` tergantung pada tipe login yang dipilih (misalnya `NISN` untuk siswa, `NIP` untuk walikelas).
+2. **Fungsi `authenticateUser($type, $username, $password)`**:
+    
+    - Fungsi ini bertugas untuk memverifikasi kredensial pengguna. Berdasarkan tipe login (`siswa`, `walikelas`, atau `admin`), fungsi ini mencari pengguna di tabel yang sesuai.
+    - **Verifikasi untuk Setiap Tipe**: Setiap tipe memiliki cara verifikasi yang berbeda:
+        - Untuk `siswa`, password dibandingkan langsung dengan `nisn`.
+        - Untuk `walikelas`, password dibandingkan langsung dengan `nip`.
+        - Untuk `admin`, password diverifikasi menggunakan hashing dengan `Hash::check()`.
+    - Jika kredensial cocok, pengguna yang ditemukan akan dikembalikan.
+3. **Fungsi `getUsernameField($type)`**:
+    
+    - Fungsi ini mengembalikan nama kolom yang digunakan untuk memverifikasi username berdasarkan tipe login. Misalnya, untuk `siswa`, digunakan kolom `nisn`; untuk `walikelas`, digunakan kolom `nip`; dan untuk `admin`, digunakan kolom `username`.
+
+Dengan menggunakan struktur ini, sistem login dapat menangani berbagai jenis pengguna dan memverifikasi kredensial mereka dengan cara yang sesuai.
 
 ---
 
@@ -461,6 +1138,93 @@ Di sini, kita mendefinisikan routing untuk menampilkan halaman jenis login, form
 ---
 
 ## Membuat View untuk Menampilkan Halaman Login
+### Pengenalan Singkat tentang Blade View
+
+Blade adalah template engine bawaan Laravel yang dirancang untuk menyederhanakan pembuatan tampilan dinamis dalam aplikasi. Berikut adalah beberapa fitur utama Blade:
+
+1. **Ekspresi Blade**:
+    
+    - Sintaks `{{ }}` digunakan untuk mencetak data pada tampilan dengan aman, misalnya:
+        
+        ```php
+        {{ $variable }}
+        ```
+        
+    - Blade secara otomatis melakukan escaping terhadap karakter HTML untuk mencegah serangan XSS (Cross-Site Scripting).
+2. **Kondisional (`@if`)**:
+    
+    - Kondisional digunakan untuk menampilkan bagian tertentu dari tampilan berdasarkan kondisi yang diberikan.
+        
+        ```php
+        @if($role == 'admin')
+            <p>Selamat datang, Admin!</p>
+        @elseif($role == 'guru')
+            <p>Selamat datang, Guru!</p>
+        @else
+            <p>Selamat datang, Siswa!</p>
+        @endif
+        ```
+        
+3. **Perulangan (`@foreach`, `@for`, `@while`)**:
+    
+    - Mempermudah iterasi data untuk menampilkan daftar atau elemen dinamis.
+        
+        ```php
+        @foreach($items as $item)
+            <li>{{ $item }}</li>
+        @endforeach
+        ```
+        
+4. **Penggunaan Komponen Blade**:
+    
+    - Blade mendukung pembuatan komponen untuk membuat tampilan yang dapat digunakan ulang. Misalnya:
+        
+        ```php
+        <x-alert type="success" message="Berhasil menyimpan data!" />
+        ```
+        
+5. **Direktif Blade Lainnya**:
+    
+    - **`@extends`**: Untuk mewarisi layout utama.
+        
+        ```php
+        @extends('layouts.app')
+        ```
+        
+    - **`@section` dan `@yield`**: Untuk mendefinisikan dan menampilkan bagian tertentu dalam layout.
+        
+        ```php
+        @section('content')
+            <p>Isi konten halaman.</p>
+        @endsection
+        ```
+        
+    - **`@include`**: Menyisipkan file Blade lain dalam tampilan.
+        
+        ```php
+        @include('partials.header')
+        ```
+        
+6. **Routing dalam Blade**:
+    
+    - Menggunakan helper `route()` untuk membuat tautan dinamis berdasarkan nama rute.
+        
+        ```php
+        <a href="{{ route('dashboard') }}">Dashboard</a>
+        ```
+        
+7. **Manajemen Aset**:
+    
+    - Blade mendukung fungsi seperti `asset()` untuk memuat file CSS atau JavaScript.
+        
+        ```php
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        ```
+        
+
+---
+
+Untuk informasi lebih lengkap tentang Blade dan penggunaannya, silakan kunjungi dokumentasi resmi Laravel di [Blade Documentation](https://github.com/xi-rpl-1/Laravel/blob/main/Laravel%20Dasar.md#mengenal-blade-template-engine-laravel).
 
 ### Halaman Pilihan Login
 
@@ -575,6 +1339,89 @@ Buat file baru dengan nama `resources/views/auth/login-form.blade.php` dan isi d
 
 ---
 ![](aset/ra.2.png)
+
+
+| **Topik**                                    | **Sub Topik**                                                          | **Status** |
+| -------------------------------------------- | ---------------------------------------------------------------------- | ---------- |
+| Menginstal Laravel 11                        |                                                                        | ✅          |
+| Konfigurasi Proyek Laravel                   |                                                                        | ✅          |
+| Membuat Model dan Migration                  |                                                                        | ✅          |
+| Menambahkan Kolom di Dalam Migration         |                                                                        | ✅          |
+|                                              | 1. Migration Kasus                                                     | ✅          |
+|                                              | 2. Migration Siswa                                                     | ✅          |
+|                                              | 3. Migration Kelas                                                     | ✅          |
+|                                              | 4. Migration Walikelas                                                 | ✅          |
+| Menambahkan Mass Assignment                  |                                                                        | ✅          |
+|                                              | 1. Model Kasus                                                         | ✅          |
+|                                              | 2. Model Siswa                                                         | ✅          |
+|                                              | 3. Model Kelas                                                         | ✅          |
+|                                              | 4. Model Walikelas                                                     | ✅          |
+| Menjalankan Proses Migrate                   |                                                                        | ✅          |
+| Menerapkan Autentikasi                       |                                                                        | ✅          |
+| Membuat Controller Auth                      |                                                                        | ✅          |
+| Menambahkan Fungsi di AuthController         |                                                                        | ✅          |
+|                                              | Menampilkan Halaman Jenis Login                                        | ✅          |
+|                                              | Menampilkan Form Login Berdasarkan Jenis                               | ✅          |
+|                                              | Proses Login                                                           | ✅          |
+|                                              | Proses Logout                                                          | ✅          |
+|                                              | Membuat Routing untuk Autentikasi                                      | ✅          |
+| Membuat View untuk Menampilkan Halaman Login |                                                                        | ✅          |
+|                                              | Halaman Pilihan Login                                                  | ✅          |
+|                                              | Membuat Form Login                                                     | ✅          |
+| Membuat Middleware                           |                                                                        |            |
+|                                              | Membuat Middleware untuk Autentikasi                                   |            |
+|                                              | Membuat Middleware untuk Role                                          |            |
+|                                              | Registrasi Middleware                                                  |            |
+| Membuat Blade Layout                         |                                                                        |            |
+| Membuat Tampilan Homepage                    |                                                                        |            |
+| Membuat Tampilan Dashboard Setelah Login     |                                                                        |            |
+| Membuat Fitur Kasus                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kasus                                        |            |
+|                                              | Membuat Controller Kasus                                               |            |
+|                                              | Menampilkan Daftar Kasus (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kasus (View index)                      |            |
+|                                              | Menambahkan Kasus Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kasus (View create)                        |            |
+|                                              | Edit dan Update Kasus ke Database                                      |            |
+|                                              | Membuat View Form Edit Kasus (View edit)                               |            |
+|                                              | Menambahkan Method Destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Siswa                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Siswa                                        |            |
+|                                              | Membuat Controller Siswa                                               |            |
+|                                              | Menampilkan Daftar Siswa (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Siswa (View index)                      |            |
+|                                              | Menambahkan Siswa Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Siswa (View create)                        |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Walikelas                      |                                                                        |            |
+|                                              | Menambahkan Routing untuk Walikelas                                    |            |
+|                                              | Membuat Controller Walikelas                                           |            |
+|                                              | Menampilkan Daftar Walikelas (Method index)                            |            |
+|                                              | Membuat View untuk Menampilkan Walikelas (View index)                  |            |
+|                                              | Menambahkan Walikelas Baru ke Dalam Database (Method create dan store) |            |
+|                                              | Membuat Form untuk Menambah Walikelas (View create)                    |            |
+|                                              | Edit dan Update Walikelas ke Database (Method edit dan update)         |            |
+|                                              | Membuat View Form Edit Walikelas (View edit)                           |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Kelas                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kelas                                        |            |
+|                                              | Membuat Controller Kelas                                               |            |
+|                                              | Menampilkan Daftar Kelas (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kelas (View index)                      |            |
+|                                              | Menambahkan Kelas Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kelas (View create)                        |            |
+|                                              | Edit dan Update Kelas ke Database                                      |            |
+|                                              | Membuat View Form Edit Kelas (View edit)                               |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Dashboard untuk Siswa                |                                                                        |            |
+|                                              | Menambahkan Routing untuk `Siswa                                       |            |
+|                                              | Membuat Controller `Siswa                                              |            |
+
+---
 # Membuat Middleware
 ###  Membuat Middleware untuk Autentikasi
 
@@ -677,11 +1524,93 @@ $middleware->alias([
 ```
 
 ![](aset/av.6.png)
-### Penjelasan:
+
+Penjelasan:
 - `withMiddleware()` adalah metode untuk mendaftarkan middleware kustom ke aplikasi Laravel.
 - Di dalam `withMiddleware()`, Anda mendefinisikan alias untuk masing-masing middleware yang telah Anda buat. Dengan mendefinisikan alias `'auth'` untuk `CheckAuthenticate` dan `'role'` untuk `RoleMiddleware`, Anda akan dapat menggunakan alias ini saat mendaftarkan middleware pada route di file `web.php`.
 - Bagian `withRouting()` mengonfigurasi file routing untuk aplikasi Laravel, sementara `withExceptions()` digunakan untuk menambahkan penanganan error jika diperlukan.
 
+| **Topik**                                    | **Sub Topik**                                                          | **Status** |
+| -------------------------------------------- | ---------------------------------------------------------------------- | ---------- |
+| Menginstal Laravel 11                        |                                                                        | ✅          |
+| Konfigurasi Proyek Laravel                   |                                                                        | ✅          |
+| Membuat Model dan Migration                  |                                                                        | ✅          |
+| Menambahkan Kolom di Dalam Migration         |                                                                        | ✅          |
+|                                              | 1. Migration Kasus                                                     | ✅          |
+|                                              | 2. Migration Siswa                                                     | ✅          |
+|                                              | 3. Migration Kelas                                                     | ✅          |
+|                                              | 4. Migration Walikelas                                                 | ✅          |
+| Menambahkan Mass Assignment                  |                                                                        | ✅          |
+|                                              | 1. Model Kasus                                                         | ✅          |
+|                                              | 2. Model Siswa                                                         | ✅          |
+|                                              | 3. Model Kelas                                                         | ✅          |
+|                                              | 4. Model Walikelas                                                     | ✅          |
+| Menjalankan Proses Migrate                   |                                                                        | ✅          |
+| Menerapkan Autentikasi                       |                                                                        | ✅          |
+| Membuat Controller Auth                      |                                                                        | ✅          |
+| Menambahkan Fungsi di AuthController         |                                                                        | ✅          |
+|                                              | Menampilkan Halaman Jenis Login                                        | ✅          |
+|                                              | Menampilkan Form Login Berdasarkan Jenis                               | ✅          |
+|                                              | Proses Login                                                           | ✅          |
+|                                              | Proses Logout                                                          | ✅          |
+|                                              | Membuat Routing untuk Autentikasi                                      | ✅          |
+| Membuat View untuk Menampilkan Halaman Login |                                                                        | ✅          |
+|                                              | Halaman Pilihan Login                                                  | ✅          |
+|                                              | Membuat Form Login                                                     | ✅          |
+| Membuat Middleware                           |                                                                        | ✅          |
+|                                              | Membuat Middleware untuk Autentikasi                                   | ✅          |
+|                                              | Membuat Middleware untuk Role                                          | ✅          |
+|                                              | Registrasi Middleware                                                  | ✅          |
+| Membuat Blade Layout                         |                                                                        |            |
+| Membuat Tampilan Homepage                    |                                                                        |            |
+| Membuat Tampilan Dashboard Setelah Login     |                                                                        |            |
+| Membuat Fitur Kasus                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kasus                                        |            |
+|                                              | Membuat Controller Kasus                                               |            |
+|                                              | Menampilkan Daftar Kasus (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kasus (View index)                      |            |
+|                                              | Menambahkan Kasus Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kasus (View create)                        |            |
+|                                              | Edit dan Update Kasus ke Database                                      |            |
+|                                              | Membuat View Form Edit Kasus (View edit)                               |            |
+|                                              | Menambahkan Method Destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Siswa                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Siswa                                        |            |
+|                                              | Membuat Controller Siswa                                               |            |
+|                                              | Menampilkan Daftar Siswa (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Siswa (View index)                      |            |
+|                                              | Menambahkan Siswa Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Siswa (View create)                        |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Walikelas                      |                                                                        |            |
+|                                              | Menambahkan Routing untuk Walikelas                                    |            |
+|                                              | Membuat Controller Walikelas                                           |            |
+|                                              | Menampilkan Daftar Walikelas (Method index)                            |            |
+|                                              | Membuat View untuk Menampilkan Walikelas (View index)                  |            |
+|                                              | Menambahkan Walikelas Baru ke Dalam Database (Method create dan store) |            |
+|                                              | Membuat Form untuk Menambah Walikelas (View create)                    |            |
+|                                              | Edit dan Update Walikelas ke Database (Method edit dan update)         |            |
+|                                              | Membuat View Form Edit Walikelas (View edit)                           |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Kelas                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kelas                                        |            |
+|                                              | Membuat Controller Kelas                                               |            |
+|                                              | Menampilkan Daftar Kelas (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kelas (View index)                      |            |
+|                                              | Menambahkan Kelas Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kelas (View create)                        |            |
+|                                              | Edit dan Update Kelas ke Database                                      |            |
+|                                              | Membuat View Form Edit Kelas (View edit)                               |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Dashboard untuk Siswa                |                                                                        |            |
+|                                              | Menambahkan Routing untuk `Siswa                                       |            |
+|                                              | Membuat Controller `Siswa                                              |            |
+
+---
 # Membuat Blade Layout
 
 Langkah pertama dalam membuat **Blade Layouts** adalah memastikan struktur folder dan file untuk layout sesuai. navigasikan ke folder `resources/views`. Di dalam folder tersebut, buat folder baru bernama `layouts` untuk menyimpan file layout utama.
@@ -876,6 +1805,90 @@ Lalu, Isi file dengan struktur HTML dasar yang mencakup penggunaan `@yield` untu
 ```
 
 ![](aset/av.17.png)
+
+
+| **Topik**                                    | **Sub Topik**                                                          | **Status** |
+| -------------------------------------------- | ---------------------------------------------------------------------- | ---------- |
+| Menginstal Laravel 11                        |                                                                        | ✅          |
+| Konfigurasi Proyek Laravel                   |                                                                        | ✅          |
+| Membuat Model dan Migration                  |                                                                        | ✅          |
+| Menambahkan Kolom di Dalam Migration         |                                                                        | ✅          |
+|                                              | 1. Migration Kasus                                                     | ✅          |
+|                                              | 2. Migration Siswa                                                     | ✅          |
+|                                              | 3. Migration Kelas                                                     | ✅          |
+|                                              | 4. Migration Walikelas                                                 | ✅          |
+| Menambahkan Mass Assignment                  |                                                                        | ✅          |
+|                                              | 1. Model Kasus                                                         | ✅          |
+|                                              | 2. Model Siswa                                                         | ✅          |
+|                                              | 3. Model Kelas                                                         | ✅          |
+|                                              | 4. Model Walikelas                                                     | ✅          |
+| Menjalankan Proses Migrate                   |                                                                        | ✅          |
+| Menerapkan Autentikasi                       |                                                                        | ✅          |
+| Membuat Controller Auth                      |                                                                        | ✅          |
+| Menambahkan Fungsi di AuthController         |                                                                        | ✅          |
+|                                              | Menampilkan Halaman Jenis Login                                        | ✅          |
+|                                              | Menampilkan Form Login Berdasarkan Jenis                               | ✅          |
+|                                              | Proses Login                                                           | ✅          |
+|                                              | Proses Logout                                                          | ✅          |
+|                                              | Membuat Routing untuk Autentikasi                                      | ✅          |
+| Membuat View untuk Menampilkan Halaman Login |                                                                        | ✅          |
+|                                              | Halaman Pilihan Login                                                  | ✅          |
+|                                              | Membuat Form Login                                                     | ✅          |
+| Membuat Middleware                           |                                                                        | ✅          |
+|                                              | Membuat Middleware untuk Autentikasi                                   | ✅          |
+|                                              | Membuat Middleware untuk Role                                          | ✅          |
+|                                              | Registrasi Middleware                                                  | ✅          |
+| Membuat Blade Layout                         |                                                                        | ✅          |
+| Membuat Tampilan Homepage                    |                                                                        |            |
+| Membuat Tampilan Dashboard Setelah Login     |                                                                        |            |
+| Membuat Fitur Kasus                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kasus                                        |            |
+|                                              | Membuat Controller Kasus                                               |            |
+|                                              | Menampilkan Daftar Kasus (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kasus (View index)                      |            |
+|                                              | Menambahkan Kasus Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kasus (View create)                        |            |
+|                                              | Edit dan Update Kasus ke Database                                      |            |
+|                                              | Membuat View Form Edit Kasus (View edit)                               |            |
+|                                              | Menambahkan Method Destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Siswa                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Siswa                                        |            |
+|                                              | Membuat Controller Siswa                                               |            |
+|                                              | Menampilkan Daftar Siswa (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Siswa (View index)                      |            |
+|                                              | Menambahkan Siswa Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Siswa (View create)                        |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Walikelas                      |                                                                        |            |
+|                                              | Menambahkan Routing untuk Walikelas                                    |            |
+|                                              | Membuat Controller Walikelas                                           |            |
+|                                              | Menampilkan Daftar Walikelas (Method index)                            |            |
+|                                              | Membuat View untuk Menampilkan Walikelas (View index)                  |            |
+|                                              | Menambahkan Walikelas Baru ke Dalam Database (Method create dan store) |            |
+|                                              | Membuat Form untuk Menambah Walikelas (View create)                    |            |
+|                                              | Edit dan Update Walikelas ke Database (Method edit dan update)         |            |
+|                                              | Membuat View Form Edit Walikelas (View edit)                           |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Kelas                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kelas                                        |            |
+|                                              | Membuat Controller Kelas                                               |            |
+|                                              | Menampilkan Daftar Kelas (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kelas (View index)                      |            |
+|                                              | Menambahkan Kelas Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kelas (View create)                        |            |
+|                                              | Edit dan Update Kelas ke Database                                      |            |
+|                                              | Membuat View Form Edit Kelas (View edit)                               |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Dashboard untuk Siswa                |                                                                        |            |
+|                                              | Menambahkan Routing untuk `Siswa                                       |            |
+|                                              | Membuat Controller `Siswa                                              |            |
+
+
+---
 # Membuat Tampilan Homepage
 Langkah pertama dalam pembuatan tampilan homepage adalah dengan membuat controller yang menangani tampilan tersebut. Untuk itu, jalankan perintah Artisan di terminal untuk membuat controller baru bernama `DashboardController` dengan perintah:
 
@@ -897,6 +1910,8 @@ public function index()
     return view('home');
 }
 ```
+
+kita menggunakan `view('home')`, nama `home` merujuk pada file tampilan yang terletak di direktori `resources/views`. Laravel akan mencari file `home.blade.php` di dalam folder tersebut. Jadi, saat fungsi `index()` dipanggil, Laravel akan menampilkan file `home.blade.php` sebagai halaman utama aplikasi. Nama `home` di sini hanya merupakan nama alias untuk file tampilan, tanpa perlu menyebutkan ekstensi `.blade.php`.
 
 ![](aset/av.20.png)
 
@@ -1040,6 +2055,90 @@ Kemudian, tambahkan kode berikut untuk file `home.blade.php`:
 Setelah langkah-langkah di atas selesai, buka browser dan akses halaman `http://localhost:8000`. Di halaman tersebut, coba masukkan `NISN` dan `Tanggal Lahir` untuk mencari data siswa dan melihat daftar kasus yang terkait.
 
 ![](aset/av.25.png)
+
+
+| **Topik**                                    | **Sub Topik**                                                          | **Status** |
+| -------------------------------------------- | ---------------------------------------------------------------------- | ---------- |
+| Menginstal Laravel 11                        |                                                                        | ✅          |
+| Konfigurasi Proyek Laravel                   |                                                                        | ✅          |
+| Membuat Model dan Migration                  |                                                                        | ✅          |
+| Menambahkan Kolom di Dalam Migration         |                                                                        | ✅          |
+|                                              | 1. Migration Kasus                                                     | ✅          |
+|                                              | 2. Migration Siswa                                                     | ✅          |
+|                                              | 3. Migration Kelas                                                     | ✅          |
+|                                              | 4. Migration Walikelas                                                 | ✅          |
+| Menambahkan Mass Assignment                  |                                                                        | ✅          |
+|                                              | 1. Model Kasus                                                         | ✅          |
+|                                              | 2. Model Siswa                                                         | ✅          |
+|                                              | 3. Model Kelas                                                         | ✅          |
+|                                              | 4. Model Walikelas                                                     | ✅          |
+| Menjalankan Proses Migrate                   |                                                                        | ✅          |
+| Menerapkan Autentikasi                       |                                                                        | ✅          |
+| Membuat Controller Auth                      |                                                                        | ✅          |
+| Menambahkan Fungsi di AuthController         |                                                                        | ✅          |
+|                                              | Menampilkan Halaman Jenis Login                                        | ✅          |
+|                                              | Menampilkan Form Login Berdasarkan Jenis                               | ✅          |
+|                                              | Proses Login                                                           | ✅          |
+|                                              | Proses Logout                                                          | ✅          |
+|                                              | Membuat Routing untuk Autentikasi                                      | ✅          |
+| Membuat View untuk Menampilkan Halaman Login |                                                                        | ✅          |
+|                                              | Halaman Pilihan Login                                                  | ✅          |
+|                                              | Membuat Form Login                                                     | ✅          |
+| Membuat Middleware                           |                                                                        | ✅          |
+|                                              | Membuat Middleware untuk Autentikasi                                   | ✅          |
+|                                              | Membuat Middleware untuk Role                                          | ✅          |
+|                                              | Registrasi Middleware                                                  | ✅          |
+| Membuat Blade Layout                         |                                                                        | ✅          |
+| Membuat Tampilan Homepage                    |                                                                        | ✅          |
+| Membuat Tampilan Dashboard Setelah Login     |                                                                        |            |
+| Membuat Fitur Kasus                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kasus                                        |            |
+|                                              | Membuat Controller Kasus                                               |            |
+|                                              | Menampilkan Daftar Kasus (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kasus (View index)                      |            |
+|                                              | Menambahkan Kasus Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kasus (View create)                        |            |
+|                                              | Edit dan Update Kasus ke Database                                      |            |
+|                                              | Membuat View Form Edit Kasus (View edit)                               |            |
+|                                              | Menambahkan Method Destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Siswa                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Siswa                                        |            |
+|                                              | Membuat Controller Siswa                                               |            |
+|                                              | Menampilkan Daftar Siswa (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Siswa (View index)                      |            |
+|                                              | Menambahkan Siswa Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Siswa (View create)                        |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Walikelas                      |                                                                        |            |
+|                                              | Menambahkan Routing untuk Walikelas                                    |            |
+|                                              | Membuat Controller Walikelas                                           |            |
+|                                              | Menampilkan Daftar Walikelas (Method index)                            |            |
+|                                              | Membuat View untuk Menampilkan Walikelas (View index)                  |            |
+|                                              | Menambahkan Walikelas Baru ke Dalam Database (Method create dan store) |            |
+|                                              | Membuat Form untuk Menambah Walikelas (View create)                    |            |
+|                                              | Edit dan Update Walikelas ke Database (Method edit dan update)         |            |
+|                                              | Membuat View Form Edit Walikelas (View edit)                           |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Kelas                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kelas                                        |            |
+|                                              | Membuat Controller Kelas                                               |            |
+|                                              | Menampilkan Daftar Kelas (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kelas (View index)                      |            |
+|                                              | Menambahkan Kelas Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kelas (View create)                        |            |
+|                                              | Edit dan Update Kelas ke Database                                      |            |
+|                                              | Membuat View Form Edit Kelas (View edit)                               |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Dashboard untuk Siswa                |                                                                        |            |
+|                                              | Menambahkan Routing untuk `Siswa                                       |            |
+|                                              | Membuat Controller `Siswa                                              |            |
+
+
+---
 # Membuat Tampilan Dashboard Setelah Login
 
 Untuk memulai pembuatan tampilan dashboard setelah login, langkah pertama adalah menambahkan routing untuk memastikan bahwa hanya pengguna yang sudah login yang dapat mengakses halaman dashboard. Gunakan middleware `auth` untuk memeriksa apakah pengguna sudah terautentikasi, dan `role` untuk memeriksa peran pengguna. Di file `routes/web.php`, tambahkan kode berikut:
@@ -1051,6 +2150,9 @@ Route::middleware('auth')->group(function () {
         ->name('dashboard.home');
 });
 ```
+
+Penjelasan:  
+rute `/dashboard` hanya dapat diakses oleh pengguna yang sudah terautentikasi, yang dijamin dengan middleware `auth`. Kemudian, rute ini dibatasi lebih lanjut dengan middleware `role:admin,walikelas`, yang memastikan bahwa hanya pengguna dengan peran `admin` atau `walikelas` yang dapat mengaksesnya. Fungsi `Route::view()` digunakan untuk menampilkan tampilan `dashboard` tanpa memerlukan controller. Terakhir, rute ini diberi nama `dashboard.home` untuk memudahkan pengarahan dan pengelolaan rute di aplikasi.
 
 ![](aset/av.26.png)
 
@@ -1084,6 +2186,87 @@ halaman dashboard akan menampilkan ucapan selamat datang berdasarkan peran pengg
 ![](aset/av.30.png)
 
 
+| **Topik**                                    | **Sub Topik**                                                          | **Status** |
+| -------------------------------------------- | ---------------------------------------------------------------------- | ---------- |
+| Menginstal Laravel 11                        |                                                                        | ✅          |
+| Konfigurasi Proyek Laravel                   |                                                                        | ✅          |
+| Membuat Model dan Migration                  |                                                                        | ✅          |
+| Menambahkan Kolom di Dalam Migration         |                                                                        | ✅          |
+|                                              | 1. Migration Kasus                                                     | ✅          |
+|                                              | 2. Migration Siswa                                                     | ✅          |
+|                                              | 3. Migration Kelas                                                     | ✅          |
+|                                              | 4. Migration Walikelas                                                 | ✅          |
+| Menambahkan Mass Assignment                  |                                                                        | ✅          |
+|                                              | 1. Model Kasus                                                         | ✅          |
+|                                              | 2. Model Siswa                                                         | ✅          |
+|                                              | 3. Model Kelas                                                         | ✅          |
+|                                              | 4. Model Walikelas                                                     | ✅          |
+| Menjalankan Proses Migrate                   |                                                                        | ✅          |
+| Menerapkan Autentikasi                       |                                                                        | ✅          |
+| Membuat Controller Auth                      |                                                                        | ✅          |
+| Menambahkan Fungsi di AuthController         |                                                                        | ✅          |
+|                                              | Menampilkan Halaman Jenis Login                                        | ✅          |
+|                                              | Menampilkan Form Login Berdasarkan Jenis                               | ✅          |
+|                                              | Proses Login                                                           | ✅          |
+|                                              | Proses Logout                                                          | ✅          |
+|                                              | Membuat Routing untuk Autentikasi                                      | ✅          |
+| Membuat View untuk Menampilkan Halaman Login |                                                                        | ✅          |
+|                                              | Halaman Pilihan Login                                                  | ✅          |
+|                                              | Membuat Form Login                                                     | ✅          |
+| Membuat Middleware                           |                                                                        | ✅          |
+|                                              | Membuat Middleware untuk Autentikasi                                   | ✅          |
+|                                              | Membuat Middleware untuk Role                                          | ✅          |
+|                                              | Registrasi Middleware                                                  | ✅          |
+| Membuat Blade Layout                         |                                                                        | ✅          |
+| Membuat Tampilan Homepage                    |                                                                        | ✅          |
+| Membuat Tampilan Dashboard Setelah Login     |                                                                        | ✅          |
+| Membuat Fitur Kasus                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kasus                                        |            |
+|                                              | Membuat Controller Kasus                                               |            |
+|                                              | Menampilkan Daftar Kasus (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kasus (View index)                      |            |
+|                                              | Menambahkan Kasus Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kasus (View create)                        |            |
+|                                              | Edit dan Update Kasus ke Database                                      |            |
+|                                              | Membuat View Form Edit Kasus (View edit)                               |            |
+|                                              | Menambahkan Method Destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Siswa                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Siswa                                        |            |
+|                                              | Membuat Controller Siswa                                               |            |
+|                                              | Menampilkan Daftar Siswa (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Siswa (View index)                      |            |
+|                                              | Menambahkan Siswa Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Siswa (View create)                        |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Walikelas                      |                                                                        |            |
+|                                              | Menambahkan Routing untuk Walikelas                                    |            |
+|                                              | Membuat Controller Walikelas                                           |            |
+|                                              | Menampilkan Daftar Walikelas (Method index)                            |            |
+|                                              | Membuat View untuk Menampilkan Walikelas (View index)                  |            |
+|                                              | Menambahkan Walikelas Baru ke Dalam Database (Method create dan store) |            |
+|                                              | Membuat Form untuk Menambah Walikelas (View create)                    |            |
+|                                              | Edit dan Update Walikelas ke Database (Method edit dan update)         |            |
+|                                              | Membuat View Form Edit Walikelas (View edit)                           |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Kelas                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kelas                                        |            |
+|                                              | Membuat Controller Kelas                                               |            |
+|                                              | Menampilkan Daftar Kelas (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kelas (View index)                      |            |
+|                                              | Menambahkan Kelas Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kelas (View create)                        |            |
+|                                              | Edit dan Update Kelas ke Database                                      |            |
+|                                              | Membuat View Form Edit Kelas (View edit)                               |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Dashboard untuk Siswa                |                                                                        |            |
+|                                              | Menambahkan Routing untuk `Siswa                                       |            |
+|                                              | Membuat Controller `Siswa                                              |            |
+
+---
 # Membuat Fitur `Kasus`
 
 ### Menambahkan Routing untuk `Kasus`
@@ -1102,6 +2285,9 @@ Route::middleware('auth')->group(function () {
 });
 ```
 
+Penjelasan:  
+Pada bagian `Route::resource('kasus')`, Laravel mendefinisikan rute untuk resource controller `KasusController` yang mencakup semua metode CRUD, kecuali metode `show`, dengan menggunakan `except('show')`. Middleware `role:admin,walikelas` diterapkan untuk membatasi akses hanya kepada pengguna yang memiliki peran `admin` atau `walikelas`. Dengan demikian, hanya pengguna dengan peran tersebut yang dapat mengakses rute terkait `kasus`, memastikan pengamanan yang sesuai untuk data dan operasi yang sensitif.
+
 ![](aset/av.31.png)
 ### Membuat Controller `Kasus`
 
@@ -1119,6 +2305,32 @@ Kemudian, buka file `KasusController.php` yang terletak di `app/Http/Controllers
 
 ![](aset/av.33.png)
 
+Penjelasan:  
+Pada Laravel, `Route::resource()` digunakan untuk mendefinisikan rute untuk resource controller yang secara otomatis akan menghasilkan beberapa rute sesuai dengan metode CRUD (Create, Read, Update, Delete). Berikut adalah penjelasan singkat untuk tiap fungsi yang dihasilkan oleh `Route::resource()`:
+
+1. **index()**  
+    Fungsi ini digunakan untuk menampilkan daftar sumber daya (misalnya, semua kasus). Rute yang dihasilkan adalah `GET /kasus`.
+    
+2. **create()**  
+    Fungsi ini digunakan untuk menampilkan form untuk membuat sumber daya baru (misalnya, form untuk membuat kasus baru). Rute yang dihasilkan adalah `GET /kasus/create`.
+    
+3. **store()**  
+    Fungsi ini menangani penyimpanan data yang baru dibuat. Setelah formulir diisi dan dikirim, data diproses dan disimpan. Rute yang dihasilkan adalah `POST /kasus`.
+    
+4. **show()**  
+    Fungsi ini digunakan untuk menampilkan detail dari sumber daya tertentu. Rute yang dihasilkan adalah `GET /kasus/{kasus}`. (Namun, dalam contoh Anda, `show()` dikecualikan dengan `except('show')`.)
+    
+5. **edit()**  
+    Fungsi ini digunakan untuk menampilkan form untuk mengedit sumber daya yang ada. Rute yang dihasilkan adalah `GET /kasus/{kasus}/edit`.
+    
+6. **update()**  
+    Fungsi ini menangani pembaruan data untuk sumber daya yang ada. Setelah form edit dikirim, data diperbarui. Rute yang dihasilkan adalah `PUT/PATCH /kasus/{kasus}`.
+    
+7. **destroy()**  
+    Fungsi ini digunakan untuk menghapus sumber daya yang ada. Rute yang dihasilkan adalah `DELETE /kasus/{kasus}`.
+    
+
+Dengan `Route::resource()`, Laravel memudahkan pengelolaan rute-rute yang berkaitan dengan operasi CRUD pada sumber daya, serta menghubungkannya langsung ke controller yang relevan.
 ### Menampilkan Daftar Kasus (Method `index`)
 
 Dalam method `index`, kita akan mengambil data semua kasus yang ada di database beserta data siswa yang terkait dengan menggunakan `Kasus::with('siswa')`. Data ini kemudian dikirim ke view `kasus.index` untuk ditampilkan.
@@ -1261,7 +2473,7 @@ Kemudian, masukkan kode untuk form tambah kasus :
 ```
 
 ![](aset/av.41.png)
-### 7. Edit dan Update Kasus ke Database
+### Edit dan Update Kasus ke Database
 
 Tambahkan method `edit` dan `update` untuk mengedit dan memperbarui data kasus di controller.
 
@@ -1362,6 +2574,90 @@ Tombol hapus ditambahkan di view `index.blade.php` agar admin dapat menghapus ka
 ```
 
 ![](aset/av.46.png)
+
+
+| **Topik**                                    | **Sub Topik**                                                          | **Status** |
+| -------------------------------------------- | ---------------------------------------------------------------------- | ---------- |
+| Menginstal Laravel 11                        |                                                                        | ✅          |
+| Konfigurasi Proyek Laravel                   |                                                                        | ✅          |
+| Membuat Model dan Migration                  |                                                                        | ✅          |
+| Menambahkan Kolom di Dalam Migration         |                                                                        | ✅          |
+|                                              | 1. Migration Kasus                                                     | ✅          |
+|                                              | 2. Migration Siswa                                                     | ✅          |
+|                                              | 3. Migration Kelas                                                     | ✅          |
+|                                              | 4. Migration Walikelas                                                 | ✅          |
+| Menambahkan Mass Assignment                  |                                                                        | ✅          |
+|                                              | 1. Model Kasus                                                         | ✅          |
+|                                              | 2. Model Siswa                                                         | ✅          |
+|                                              | 3. Model Kelas                                                         | ✅          |
+|                                              | 4. Model Walikelas                                                     | ✅          |
+| Menjalankan Proses Migrate                   |                                                                        | ✅          |
+| Menerapkan Autentikasi                       |                                                                        | ✅          |
+| Membuat Controller Auth                      |                                                                        | ✅          |
+| Menambahkan Fungsi di AuthController         |                                                                        | ✅          |
+|                                              | Menampilkan Halaman Jenis Login                                        | ✅          |
+|                                              | Menampilkan Form Login Berdasarkan Jenis                               | ✅          |
+|                                              | Proses Login                                                           | ✅          |
+|                                              | Proses Logout                                                          | ✅          |
+|                                              | Membuat Routing untuk Autentikasi                                      | ✅          |
+| Membuat View untuk Menampilkan Halaman Login |                                                                        | ✅          |
+|                                              | Halaman Pilihan Login                                                  | ✅          |
+|                                              | Membuat Form Login                                                     | ✅          |
+| Membuat Middleware                           |                                                                        | ✅          |
+|                                              | Membuat Middleware untuk Autentikasi                                   | ✅          |
+|                                              | Membuat Middleware untuk Role                                          | ✅          |
+|                                              | Registrasi Middleware                                                  | ✅          |
+| Membuat Blade Layout                         |                                                                        | ✅          |
+| Membuat Tampilan Homepage                    |                                                                        | ✅          |
+| Membuat Tampilan Dashboard Setelah Login     |                                                                        | ✅          |
+| Membuat Fitur Kasus                          |                                                                        | ✅          |
+|                                              | Menambahkan Routing untuk Kasus                                        | ✅          |
+|                                              | Membuat Controller Kasus                                               | ✅          |
+|                                              | Menampilkan Daftar Kasus (Method index)                                | ✅          |
+|                                              | Membuat View untuk Menampilkan Kasus (View index)                      | ✅          |
+|                                              | Menambahkan Kasus Baru ke Dalam Database (Method create dan store)     | ✅          |
+|                                              | Membuat Form untuk Menambah Kasus (View create)                        | ✅          |
+|                                              | Edit dan Update Kasus ke Database                                      | ✅          |
+|                                              | Membuat View Form Edit Kasus (View edit)                               | ✅          |
+|                                              | Menambahkan Method Destroy di Controller                               | ✅          |
+|                                              | Menambahkan Tombol Hapus di View                                       | ✅          |
+| Membuat Fitur Siswa                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Siswa                                        |            |
+|                                              | Membuat Controller Siswa                                               |            |
+|                                              | Menampilkan Daftar Siswa (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Siswa (View index)                      |            |
+|                                              | Menambahkan Siswa Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Siswa (View create)                        |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Walikelas                      |                                                                        |            |
+|                                              | Menambahkan Routing untuk Walikelas                                    |            |
+|                                              | Membuat Controller Walikelas                                           |            |
+|                                              | Menampilkan Daftar Walikelas (Method index)                            |            |
+|                                              | Membuat View untuk Menampilkan Walikelas (View index)                  |            |
+|                                              | Menambahkan Walikelas Baru ke Dalam Database (Method create dan store) |            |
+|                                              | Membuat Form untuk Menambah Walikelas (View create)                    |            |
+|                                              | Edit dan Update Walikelas ke Database (Method edit dan update)         |            |
+|                                              | Membuat View Form Edit Walikelas (View edit)                           |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Kelas                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kelas                                        |            |
+|                                              | Membuat Controller Kelas                                               |            |
+|                                              | Menampilkan Daftar Kelas (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kelas (View index)                      |            |
+|                                              | Menambahkan Kelas Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kelas (View create)                        |            |
+|                                              | Edit dan Update Kelas ke Database                                      |            |
+|                                              | Membuat View Form Edit Kelas (View edit)                               |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Dashboard untuk Siswa                |                                                                        |            |
+|                                              | Menambahkan Routing untuk `Siswa                                       |            |
+|                                              | Membuat Controller `Siswa                                              |            |
+
+
+---
 # Membuat Fitur `Siswa` 
 ### Menambahkan Routing untuk `Siswa`
 
@@ -1595,6 +2891,90 @@ Buka file `resources/views/siswa/index.blade.php` dan tambahkan form untuk mengh
 ```
 
 ![](aset/av.59.png)
+
+---
+
+
+| **Topik**                                    | **Sub Topik**                                                          | **Status** |
+| -------------------------------------------- | ---------------------------------------------------------------------- | ---------- |
+| Menginstal Laravel 11                        |                                                                        | ✅          |
+| Konfigurasi Proyek Laravel                   |                                                                        | ✅          |
+| Membuat Model dan Migration                  |                                                                        | ✅          |
+| Menambahkan Kolom di Dalam Migration         |                                                                        | ✅          |
+|                                              | 1. Migration Kasus                                                     | ✅          |
+|                                              | 2. Migration Siswa                                                     | ✅          |
+|                                              | 3. Migration Kelas                                                     | ✅          |
+|                                              | 4. Migration Walikelas                                                 | ✅          |
+| Menambahkan Mass Assignment                  |                                                                        | ✅          |
+|                                              | 1. Model Kasus                                                         | ✅          |
+|                                              | 2. Model Siswa                                                         | ✅          |
+|                                              | 3. Model Kelas                                                         | ✅          |
+|                                              | 4. Model Walikelas                                                     | ✅          |
+| Menjalankan Proses Migrate                   |                                                                        | ✅          |
+| Menerapkan Autentikasi                       |                                                                        | ✅          |
+| Membuat Controller Auth                      |                                                                        | ✅          |
+| Menambahkan Fungsi di AuthController         |                                                                        | ✅          |
+|                                              | Menampilkan Halaman Jenis Login                                        | ✅          |
+|                                              | Menampilkan Form Login Berdasarkan Jenis                               | ✅          |
+|                                              | Proses Login                                                           | ✅          |
+|                                              | Proses Logout                                                          | ✅          |
+|                                              | Membuat Routing untuk Autentikasi                                      | ✅          |
+| Membuat View untuk Menampilkan Halaman Login |                                                                        | ✅          |
+|                                              | Halaman Pilihan Login                                                  | ✅          |
+|                                              | Membuat Form Login                                                     | ✅          |
+| Membuat Middleware                           |                                                                        | ✅          |
+|                                              | Membuat Middleware untuk Autentikasi                                   | ✅          |
+|                                              | Membuat Middleware untuk Role                                          | ✅          |
+|                                              | Registrasi Middleware                                                  | ✅          |
+| Membuat Blade Layout                         |                                                                        | ✅          |
+| Membuat Tampilan Homepage                    |                                                                        | ✅          |
+| Membuat Tampilan Dashboard Setelah Login     |                                                                        | ✅          |
+| Membuat Fitur Kasus                          |                                                                        | ✅          |
+|                                              | Menambahkan Routing untuk Kasus                                        | ✅          |
+|                                              | Membuat Controller Kasus                                               | ✅          |
+|                                              | Menampilkan Daftar Kasus (Method index)                                | ✅          |
+|                                              | Membuat View untuk Menampilkan Kasus (View index)                      | ✅          |
+|                                              | Menambahkan Kasus Baru ke Dalam Database (Method create dan store)     | ✅          |
+|                                              | Membuat Form untuk Menambah Kasus (View create)                        | ✅          |
+|                                              | Edit dan Update Kasus ke Database                                      | ✅          |
+|                                              | Membuat View Form Edit Kasus (View edit)                               | ✅          |
+|                                              | Menambahkan Method Destroy di Controller                               | ✅          |
+|                                              | Menambahkan Tombol Hapus di View                                       | ✅          |
+| Membuat Fitur Siswa                          |                                                                        | ✅          |
+|                                              | Menambahkan Routing untuk Siswa                                        | ✅          |
+|                                              | Membuat Controller Siswa                                               | ✅          |
+|                                              | Menampilkan Daftar Siswa (Method index)                                | ✅          |
+|                                              | Membuat View untuk Menampilkan Siswa (View index)                      | ✅          |
+|                                              | Menambahkan Siswa Baru ke Dalam Database (Method create dan store)     | ✅          |
+|                                              | Membuat Form untuk Menambah Siswa (View create)                        | ✅          |
+|                                              | Menambahkan Method destroy di Controller                               | ✅          |
+|                                              | Menambahkan Tombol Hapus di View                                       | ✅          |
+| Membuat Fitur Walikelas                      |                                                                        |            |
+|                                              | Menambahkan Routing untuk Walikelas                                    |            |
+|                                              | Membuat Controller Walikelas                                           |            |
+|                                              | Menampilkan Daftar Walikelas (Method index)                            |            |
+|                                              | Membuat View untuk Menampilkan Walikelas (View index)                  |            |
+|                                              | Menambahkan Walikelas Baru ke Dalam Database (Method create dan store) |            |
+|                                              | Membuat Form untuk Menambah Walikelas (View create)                    |            |
+|                                              | Edit dan Update Walikelas ke Database (Method edit dan update)         |            |
+|                                              | Membuat View Form Edit Walikelas (View edit)                           |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Fitur Kelas                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kelas                                        |            |
+|                                              | Membuat Controller Kelas                                               |            |
+|                                              | Menampilkan Daftar Kelas (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kelas (View index)                      |            |
+|                                              | Menambahkan Kelas Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kelas (View create)                        |            |
+|                                              | Edit dan Update Kelas ke Database                                      |            |
+|                                              | Membuat View Form Edit Kelas (View edit)                               |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Dashboard untuk Siswa                |                                                                        |            |
+|                                              | Menambahkan Routing untuk `Siswa                                       |            |
+|                                              | Membuat Controller `Siswa                                              |            |
+
 
 ---
 # Membuat Fitur `Walikelas`
@@ -1884,6 +3264,90 @@ Tombol hapus sudah ditambahkan di view `walikelas.index.blade.php`, namun pastik
 
 ![](aset/av.75.png)
 
+
+
+| **Topik**                                    | **Sub Topik**                                                          | **Status** |
+| -------------------------------------------- | ---------------------------------------------------------------------- | ---------- |
+| Menginstal Laravel 11                        |                                                                        | ✅          |
+| Konfigurasi Proyek Laravel                   |                                                                        | ✅          |
+| Membuat Model dan Migration                  |                                                                        | ✅          |
+| Menambahkan Kolom di Dalam Migration         |                                                                        | ✅          |
+|                                              | 1. Migration Kasus                                                     | ✅          |
+|                                              | 2. Migration Siswa                                                     | ✅          |
+|                                              | 3. Migration Kelas                                                     | ✅          |
+|                                              | 4. Migration Walikelas                                                 | ✅          |
+| Menambahkan Mass Assignment                  |                                                                        | ✅          |
+|                                              | 1. Model Kasus                                                         | ✅          |
+|                                              | 2. Model Siswa                                                         | ✅          |
+|                                              | 3. Model Kelas                                                         | ✅          |
+|                                              | 4. Model Walikelas                                                     | ✅          |
+| Menjalankan Proses Migrate                   |                                                                        | ✅          |
+| Menerapkan Autentikasi                       |                                                                        | ✅          |
+| Membuat Controller Auth                      |                                                                        | ✅          |
+| Menambahkan Fungsi di AuthController         |                                                                        | ✅          |
+|                                              | Menampilkan Halaman Jenis Login                                        | ✅          |
+|                                              | Menampilkan Form Login Berdasarkan Jenis                               | ✅          |
+|                                              | Proses Login                                                           | ✅          |
+|                                              | Proses Logout                                                          | ✅          |
+|                                              | Membuat Routing untuk Autentikasi                                      | ✅          |
+| Membuat View untuk Menampilkan Halaman Login |                                                                        | ✅          |
+|                                              | Halaman Pilihan Login                                                  | ✅          |
+|                                              | Membuat Form Login                                                     | ✅          |
+| Membuat Middleware                           |                                                                        | ✅          |
+|                                              | Membuat Middleware untuk Autentikasi                                   | ✅          |
+|                                              | Membuat Middleware untuk Role                                          | ✅          |
+|                                              | Registrasi Middleware                                                  | ✅          |
+| Membuat Blade Layout                         |                                                                        | ✅          |
+| Membuat Tampilan Homepage                    |                                                                        | ✅          |
+| Membuat Tampilan Dashboard Setelah Login     |                                                                        | ✅          |
+| Membuat Fitur Kasus                          |                                                                        | ✅          |
+|                                              | Menambahkan Routing untuk Kasus                                        | ✅          |
+|                                              | Membuat Controller Kasus                                               | ✅          |
+|                                              | Menampilkan Daftar Kasus (Method index)                                | ✅          |
+|                                              | Membuat View untuk Menampilkan Kasus (View index)                      | ✅          |
+|                                              | Menambahkan Kasus Baru ke Dalam Database (Method create dan store)     | ✅          |
+|                                              | Membuat Form untuk Menambah Kasus (View create)                        | ✅          |
+|                                              | Edit dan Update Kasus ke Database                                      | ✅          |
+|                                              | Membuat View Form Edit Kasus (View edit)                               | ✅          |
+|                                              | Menambahkan Method Destroy di Controller                               | ✅          |
+|                                              | Menambahkan Tombol Hapus di View                                       | ✅          |
+| Membuat Fitur Siswa                          |                                                                        | ✅          |
+|                                              | Menambahkan Routing untuk Siswa                                        | ✅          |
+|                                              | Membuat Controller Siswa                                               | ✅          |
+|                                              | Menampilkan Daftar Siswa (Method index)                                | ✅          |
+|                                              | Membuat View untuk Menampilkan Siswa (View index)                      | ✅          |
+|                                              | Menambahkan Siswa Baru ke Dalam Database (Method create dan store)     | ✅          |
+|                                              | Membuat Form untuk Menambah Siswa (View create)                        | ✅          |
+|                                              | Menambahkan Method destroy di Controller                               | ✅          |
+|                                              | Menambahkan Tombol Hapus di View                                       | ✅          |
+| Membuat Fitur Walikelas                      |                                                                        | ✅          |
+|                                              | Menambahkan Routing untuk Walikelas                                    | ✅          |
+|                                              | Membuat Controller Walikelas                                           | ✅          |
+|                                              | Menampilkan Daftar Walikelas (Method index)                            | ✅          |
+|                                              | Membuat View untuk Menampilkan Walikelas (View index)                  | ✅          |
+|                                              | Menambahkan Walikelas Baru ke Dalam Database (Method create dan store) | ✅          |
+|                                              | Membuat Form untuk Menambah Walikelas (View create)                    | ✅          |
+|                                              | Edit dan Update Walikelas ke Database (Method edit dan update)         | ✅          |
+|                                              | Membuat View Form Edit Walikelas (View edit)                           | ✅          |
+|                                              | Menambahkan Method destroy di Controller                               | ✅          |
+|                                              | Menambahkan Tombol Hapus di View                                       | ✅          |
+| Membuat Fitur Kelas                          |                                                                        |            |
+|                                              | Menambahkan Routing untuk Kelas                                        |            |
+|                                              | Membuat Controller Kelas                                               |            |
+|                                              | Menampilkan Daftar Kelas (Method index)                                |            |
+|                                              | Membuat View untuk Menampilkan Kelas (View index)                      |            |
+|                                              | Menambahkan Kelas Baru ke Dalam Database (Method create dan store)     |            |
+|                                              | Membuat Form untuk Menambah Kelas (View create)                        |            |
+|                                              | Edit dan Update Kelas ke Database                                      |            |
+|                                              | Membuat View Form Edit Kelas (View edit)                               |            |
+|                                              | Menambahkan Method destroy di Controller                               |            |
+|                                              | Menambahkan Tombol Hapus di View                                       |            |
+| Membuat Dashboard untuk Siswa                |                                                                        |            |
+|                                              | Menambahkan Routing untuk `Siswa                                       |            |
+|                                              | Membuat Controller `Siswa                                              |            |
+
+
+---
 # Membuat Fitur `Kelas`
 ### Menambahkan Routing untuk `Kelas`
 
@@ -2182,6 +3646,90 @@ Untuk memungkinkan pengguna menghapus data kelas, tambahkan tombol hapus di view
 
 ![](aset/av.92.png)
 
+
+
+| **Topik**                                    | **Sub Topik**                                                          | **Status** |
+| -------------------------------------------- | ---------------------------------------------------------------------- | ---------- |
+| Menginstal Laravel 11                        |                                                                        | ✅          |
+| Konfigurasi Proyek Laravel                   |                                                                        | ✅          |
+| Membuat Model dan Migration                  |                                                                        | ✅          |
+| Menambahkan Kolom di Dalam Migration         |                                                                        | ✅          |
+|                                              | 1. Migration Kasus                                                     | ✅          |
+|                                              | 2. Migration Siswa                                                     | ✅          |
+|                                              | 3. Migration Kelas                                                     | ✅          |
+|                                              | 4. Migration Walikelas                                                 | ✅          |
+| Menambahkan Mass Assignment                  |                                                                        | ✅          |
+|                                              | 1. Model Kasus                                                         | ✅          |
+|                                              | 2. Model Siswa                                                         | ✅          |
+|                                              | 3. Model Kelas                                                         | ✅          |
+|                                              | 4. Model Walikelas                                                     | ✅          |
+| Menjalankan Proses Migrate                   |                                                                        | ✅          |
+| Menerapkan Autentikasi                       |                                                                        | ✅          |
+| Membuat Controller Auth                      |                                                                        | ✅          |
+| Menambahkan Fungsi di AuthController         |                                                                        | ✅          |
+|                                              | Menampilkan Halaman Jenis Login                                        | ✅          |
+|                                              | Menampilkan Form Login Berdasarkan Jenis                               | ✅          |
+|                                              | Proses Login                                                           | ✅          |
+|                                              | Proses Logout                                                          | ✅          |
+|                                              | Membuat Routing untuk Autentikasi                                      | ✅          |
+| Membuat View untuk Menampilkan Halaman Login |                                                                        | ✅          |
+|                                              | Halaman Pilihan Login                                                  | ✅          |
+|                                              | Membuat Form Login                                                     | ✅          |
+| Membuat Middleware                           |                                                                        | ✅          |
+|                                              | Membuat Middleware untuk Autentikasi                                   | ✅          |
+|                                              | Membuat Middleware untuk Role                                          | ✅          |
+|                                              | Registrasi Middleware                                                  | ✅          |
+| Membuat Blade Layout                         |                                                                        | ✅          |
+| Membuat Tampilan Homepage                    |                                                                        | ✅          |
+| Membuat Tampilan Dashboard Setelah Login     |                                                                        | ✅          |
+| Membuat Fitur Kasus                          |                                                                        | ✅          |
+|                                              | Menambahkan Routing untuk Kasus                                        | ✅          |
+|                                              | Membuat Controller Kasus                                               | ✅          |
+|                                              | Menampilkan Daftar Kasus (Method index)                                | ✅          |
+|                                              | Membuat View untuk Menampilkan Kasus (View index)                      | ✅          |
+|                                              | Menambahkan Kasus Baru ke Dalam Database (Method create dan store)     | ✅          |
+|                                              | Membuat Form untuk Menambah Kasus (View create)                        | ✅          |
+|                                              | Edit dan Update Kasus ke Database                                      | ✅          |
+|                                              | Membuat View Form Edit Kasus (View edit)                               | ✅          |
+|                                              | Menambahkan Method Destroy di Controller                               | ✅          |
+|                                              | Menambahkan Tombol Hapus di View                                       | ✅          |
+| Membuat Fitur Siswa                          |                                                                        | ✅          |
+|                                              | Menambahkan Routing untuk Siswa                                        | ✅          |
+|                                              | Membuat Controller Siswa                                               | ✅          |
+|                                              | Menampilkan Daftar Siswa (Method index)                                | ✅          |
+|                                              | Membuat View untuk Menampilkan Siswa (View index)                      | ✅          |
+|                                              | Menambahkan Siswa Baru ke Dalam Database (Method create dan store)     | ✅          |
+|                                              | Membuat Form untuk Menambah Siswa (View create)                        | ✅          |
+|                                              | Menambahkan Method destroy di Controller                               | ✅          |
+|                                              | Menambahkan Tombol Hapus di View                                       | ✅          |
+| Membuat Fitur Walikelas                      |                                                                        | ✅          |
+|                                              | Menambahkan Routing untuk Walikelas                                    | ✅          |
+|                                              | Membuat Controller Walikelas                                           | ✅          |
+|                                              | Menampilkan Daftar Walikelas (Method index)                            | ✅          |
+|                                              | Membuat View untuk Menampilkan Walikelas (View index)                  | ✅          |
+|                                              | Menambahkan Walikelas Baru ke Dalam Database (Method create dan store) | ✅          |
+|                                              | Membuat Form untuk Menambah Walikelas (View create)                    | ✅          |
+|                                              | Edit dan Update Walikelas ke Database (Method edit dan update)         | ✅          |
+|                                              | Membuat View Form Edit Walikelas (View edit)                           | ✅          |
+|                                              | Menambahkan Method destroy di Controller                               | ✅          |
+|                                              | Menambahkan Tombol Hapus di View                                       | ✅          |
+| Membuat Fitur Kelas                          |                                                                        | ✅          |
+|                                              | Menambahkan Routing untuk Kelas                                        | ✅          |
+|                                              | Membuat Controller Kelas                                               | ✅          |
+|                                              | Menampilkan Daftar Kelas (Method index)                                | ✅          |
+|                                              | Membuat View untuk Menampilkan Kelas (View index)                      | ✅          |
+|                                              | Menambahkan Kelas Baru ke Dalam Database (Method create dan store)     | ✅          |
+|                                              | Membuat Form untuk Menambah Kelas (View create)                        | ✅          |
+|                                              | Edit dan Update Kelas ke Database                                      | ✅          |
+|                                              | Membuat View Form Edit Kelas (View edit)                               | ✅          |
+|                                              | Menambahkan Method destroy di Controller                               | ✅          |
+|                                              | Menambahkan Tombol Hapus di View                                       | ✅          |
+| Membuat Dashboard untuk Siswa                |                                                                        |            |
+|                                              | Menambahkan Routing untuk `Siswa                                       |            |
+|                                              | Membuat Controller `Siswa                                              |            |
+
+
+---
 # Membuat Dashboard untuk `Siswa`
 
 ### Menambahkan Routing untuk `Siswa
@@ -2212,7 +3760,7 @@ public function dashboard()
 
 ![](aset/av.94.png)
 
-### Membuat View untuk Menampilkan Kasus Siswa (View `dashboard`)
+### Membuat View untuk Menampilkan Kasus Siswa (View `dashboard`
 
 Buat view `dashboard.blade.php` di dalam folder `resources/views/siswa` untuk menampilkan riwayat kasus siswa. 
 
@@ -2281,3 +3829,84 @@ Kemudian, buat kode untuk halaman dashboard siswa :
 - **Routing:** Kita menambahkan route dengan menggunakan middleware `role:siswa`, yang memastikan hanya siswa yang dapat mengakses halaman dashboard mereka.
 - **Controller `SiswaController`:** Method `dashboard` mengambil data siswa yang sedang login melalui `session('user')['id']`. Data tersebut juga mencakup informasi kasus yang terkait dengan siswa tersebut.
 - **View `dashboard.blade.php`:** Di sini kita menampilkan informasi siswa, seperti nama, NISN, kelas, serta riwayat kasus siswa yang terdaftar. Jika tidak ada kasus, pesan pemberitahuan "Tidak Ada Riwayat Kasus" akan ditampilkan.
+
+
+| **Topik**                                    | **Sub Topik**                                                          | **Status** |
+| -------------------------------------------- | ---------------------------------------------------------------------- | ---------- |
+| Menginstal Laravel 11                        |                                                                        | ✅          |
+| Konfigurasi Proyek Laravel                   |                                                                        | ✅          |
+| Membuat Model dan Migration                  |                                                                        | ✅          |
+| Menambahkan Kolom di Dalam Migration         |                                                                        | ✅          |
+|                                              | 1. Migration Kasus                                                     | ✅          |
+|                                              | 2. Migration Siswa                                                     | ✅          |
+|                                              | 3. Migration Kelas                                                     | ✅          |
+|                                              | 4. Migration Walikelas                                                 | ✅          |
+| Menambahkan Mass Assignment                  |                                                                        | ✅          |
+|                                              | 1. Model Kasus                                                         | ✅          |
+|                                              | 2. Model Siswa                                                         | ✅          |
+|                                              | 3. Model Kelas                                                         | ✅          |
+|                                              | 4. Model Walikelas                                                     | ✅          |
+| Menjalankan Proses Migrate                   |                                                                        | ✅          |
+| Menerapkan Autentikasi                       |                                                                        | ✅          |
+| Membuat Controller Auth                      |                                                                        | ✅          |
+| Menambahkan Fungsi di AuthController         |                                                                        | ✅          |
+|                                              | Menampilkan Halaman Jenis Login                                        | ✅          |
+|                                              | Menampilkan Form Login Berdasarkan Jenis                               | ✅          |
+|                                              | Proses Login                                                           | ✅          |
+|                                              | Proses Logout                                                          | ✅          |
+|                                              | Membuat Routing untuk Autentikasi                                      | ✅          |
+| Membuat View untuk Menampilkan Halaman Login |                                                                        | ✅          |
+|                                              | Halaman Pilihan Login                                                  | ✅          |
+|                                              | Membuat Form Login                                                     | ✅          |
+| Membuat Middleware                           |                                                                        | ✅          |
+|                                              | Membuat Middleware untuk Autentikasi                                   | ✅          |
+|                                              | Membuat Middleware untuk Role                                          | ✅          |
+|                                              | Registrasi Middleware                                                  | ✅          |
+| Membuat Blade Layout                         |                                                                        | ✅          |
+| Membuat Tampilan Homepage                    |                                                                        | ✅          |
+| Membuat Tampilan Dashboard Setelah Login     |                                                                        | ✅          |
+| Membuat Fitur Kasus                          |                                                                        | ✅          |
+|                                              | Menambahkan Routing untuk Kasus                                        | ✅          |
+|                                              | Membuat Controller Kasus                                               | ✅          |
+|                                              | Menampilkan Daftar Kasus (Method index)                                | ✅          |
+|                                              | Membuat View untuk Menampilkan Kasus (View index)                      | ✅          |
+|                                              | Menambahkan Kasus Baru ke Dalam Database (Method create dan store)     | ✅          |
+|                                              | Membuat Form untuk Menambah Kasus (View create)                        | ✅          |
+|                                              | Edit dan Update Kasus ke Database                                      | ✅          |
+|                                              | Membuat View Form Edit Kasus (View edit)                               | ✅          |
+|                                              | Menambahkan Method Destroy di Controller                               | ✅          |
+|                                              | Menambahkan Tombol Hapus di View                                       | ✅          |
+| Membuat Fitur Siswa                          |                                                                        | ✅          |
+|                                              | Menambahkan Routing untuk Siswa                                        | ✅          |
+|                                              | Membuat Controller Siswa                                               | ✅          |
+|                                              | Menampilkan Daftar Siswa (Method index)                                | ✅          |
+|                                              | Membuat View untuk Menampilkan Siswa (View index)                      | ✅          |
+|                                              | Menambahkan Siswa Baru ke Dalam Database (Method create dan store)     | ✅          |
+|                                              | Membuat Form untuk Menambah Siswa (View create)                        | ✅          |
+|                                              | Menambahkan Method destroy di Controller                               | ✅          |
+|                                              | Menambahkan Tombol Hapus di View                                       | ✅          |
+| Membuat Fitur Walikelas                      |                                                                        | ✅          |
+|                                              | Menambahkan Routing untuk Walikelas                                    | ✅          |
+|                                              | Membuat Controller Walikelas                                           | ✅          |
+|                                              | Menampilkan Daftar Walikelas (Method index)                            | ✅          |
+|                                              | Membuat View untuk Menampilkan Walikelas (View index)                  | ✅          |
+|                                              | Menambahkan Walikelas Baru ke Dalam Database (Method create dan store) | ✅          |
+|                                              | Membuat Form untuk Menambah Walikelas (View create)                    | ✅          |
+|                                              | Edit dan Update Walikelas ke Database (Method edit dan update)         | ✅          |
+|                                              | Membuat View Form Edit Walikelas (View edit)                           | ✅          |
+|                                              | Menambahkan Method destroy di Controller                               | ✅          |
+|                                              | Menambahkan Tombol Hapus di View                                       | ✅          |
+| Membuat Fitur Kelas                          |                                                                        | ✅          |
+|                                              | Menambahkan Routing untuk Kelas                                        | ✅          |
+|                                              | Membuat Controller Kelas                                               | ✅          |
+|                                              | Menampilkan Daftar Kelas (Method index)                                | ✅          |
+|                                              | Membuat View untuk Menampilkan Kelas (View index)                      | ✅          |
+|                                              | Menambahkan Kelas Baru ke Dalam Database (Method create dan store)     | ✅          |
+|                                              | Membuat Form untuk Menambah Kelas (View create)                        | ✅          |
+|                                              | Edit dan Update Kelas ke Database                                      | ✅          |
+|                                              | Membuat View Form Edit Kelas (View edit)                               | ✅          |
+|                                              | Menambahkan Method destroy di Controller                               | ✅          |
+|                                              | Menambahkan Tombol Hapus di View                                       | ✅          |
+| Membuat Dashboard untuk Siswa                |                                                                        | ✅          |
+|                                              | Menambahkan Routing untuk `Siswa                                       | ✅          |
+|                                              | Membuat Controller `Siswa                                              | ✅          |
