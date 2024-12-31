@@ -101,11 +101,18 @@ $role = $user['role'];
 ```
 
 ![](aset/2.8.png)
+#### Query yang digunakan
+```sql
+SELECT id_walikelas, nama_walikelas, nip, jenis_kelamin, alamat, tanggal_dibuat, tanggal_diperbarui 
+FROM tb_walikelas 
+ORDER BY nama_walikelas
+```
+**Penjelasan:** Query ini digunakan untuk mengambil data wali kelas dari tabel `tb_walikelas`, termasuk `id_walikelas`, `nama_walikelas`, `nip`, `jenis_kelamin`, `alamat`, serta tanggal pembuatan dan pembaruan data. Data diurutkan berdasarkan `nama_walikelas` secara alfabetis. Jika query gagal dijalankan, akan muncul pesan kesalahan yang diberikan oleh `mysqli_error`. Setelah itu, informasi pengguna yang sedang login diambil dari sesi untuk menentukan role pengguna (`$role`).
 
-**Penjelasan:**
+**Penjelasan Kode:**
 - **Query SQL**:
     - **`SELECT`**: Mengambil kolom yang diperlukan dari tabel `tb_walikelas`.
-    - **`ORDER BY`**: Mengurutkan data berdasarkan nama wali kelas.
+    - **`ORDER BY`** : Mengurutkan data berdasarkan nama wali kelas.
 - **`mysqli_query`**: Menjalankan query pada koneksi database.
 - **Error Handling**: Jika query gagal, fungsi **`die`** menampilkan pesan kesalahan dari **`mysqli_error`**.
 ---
@@ -345,8 +352,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ```
 
 ![foto](aset/2.35.png)
+#### Query yang digunakan
+```sql
+INSERT INTO tb_walikelas (nama_walikelas, nip, jenis_kelamin, alamat) 
+VALUES (?, ?, ?, ?)
+```
+**Penjelasan:** Query ini digunakan untuk menyisipkan data wali kelas baru ke dalam tabel `tb_walikelas`. Data yang dimasukkan adalah `nama_walikelas`, `nip`, `jenis_kelamin`, dan `alamat`, yang diambil dari form input menggunakan metode POST. Nilai-nilai ini diikat sebagai parameter dalam query menggunakan `bind_param` dengan tipe data string (`ssss`). Jika query berhasil dijalankan, pengguna akan diarahkan ke halaman utama (`index.php`). Jika gagal, pengguna akan diarahkan kembali ke halaman form tambah wali kelas (`tambah_walikelas.php`).
 
-**Penjelasan :**
+**Penjelasan Kode:**
 - **`$_SERVER['REQUEST_METHOD']`**: Mengecek apakah metode yang digunakan adalah POST.
 - **Data Form**:
     - **`$_POST`**: Mengambil nilai input dari form.
@@ -376,7 +389,7 @@ require_once __DIR__ . '/../../includes/function.php';
 
 ![foto](aset/2.36.png)
 
-**Penjelasan :**
+**Penjelasan Kode:**
 - `session_start()`: Memulai sesi untuk mengakses data seperti informasi pengguna yang sedang login.
 - `require_once`: Menyertakan file **db.php** untuk koneksi database dan **function.php** untuk menggunakan fungsi tambahan yang diperlukan.
 
@@ -396,6 +409,11 @@ $walikelas = fetchData($conn, "SELECT * FROM tb_walikelas WHERE id_walikelas = $
 ```
 
 ![foto](aset/2.37.png)
+#### Query yang digunakan
+```sql
+SELECT * FROM tb_walikelas WHERE id_walikelas = $id_walikelas
+```
+**Penjelasan:** Query ini digunakan untuk mengambil data wali kelas berdasarkan `id_walikelas` yang diterima melalui parameter URL `$_GET['id']`. Data yang diambil mencakup seluruh kolom dari tabel `tb_walikelas`. Hasil query kemudian diambil menggunakan fungsi `fetchData()` dan disimpan dalam variabel `$walikelas`. Jika data ditemukan, informasi wali kelas tersebut akan digunakan dalam aplikasi.
 
 **Penjelasan Kode:**
 - **`$_SESSION['user']`**: Mengambil data user yang tersimpan di sesi untuk memastikan hanya user tertentu yang memiliki akses.
@@ -570,8 +588,15 @@ $query = "UPDATE tb_walikelas
 ```
 
 ![foto](aset/2.46.png)
+#### Query yang digunakan
+```sql
+UPDATE tb_walikelas 
+SET nama_walikelas = ?, nip = ?, jenis_kelamin = ?, alamat = ? 
+WHERE id_walikelas = ?
+```
+**Penjelasan:**  Query ini digunakan untuk memperbarui data wali kelas dalam tabel `tb_walikelas` berdasarkan `id_walikelas`. Kolom yang diperbarui meliputi `nama_walikelas`, `nip`, `jenis_kelamin`, dan `alamat`. Kondisi `WHERE id_walikelas = ?` memastikan bahwa hanya data wali kelas dengan `id_walikelas` yang sesuai yang akan diubah. Parameter-parameter query ini diikat dengan menggunakan `bind_param`, dan query ini dieksekusi untuk memperbarui data wali kelas yang bersangkutan.
 
-**Penjelasan :**
+**Penjelasan Kode:**
 - **`$conn->prepare($query)`**: Mempersiapkan query agar lebih aman dari SQL Injection.
 - **`bind_param`**: Menghubungkan parameter di query dengan variabel yang akan dikirimkan:
     - `"ssssi"`: Menunjukkan tipe data untuk parameter (`s` = string, `i` = integer).
@@ -672,8 +697,13 @@ $delete_query = "DELETE FROM tb_walikelas WHERE id_walikelas = $id_walikelas";
 ```
 
 ![foto](aset/2.52.png)
+#### Query yang digunakan
+```sql
+DELETE FROM tb_walikelas WHERE id_walikelas = $id_walikelas
+```
+**Penjelasan:**  Query ini digunakan untuk menghapus data wali kelas dari tabel `tb_walikelas` berdasarkan `id_walikelas` yang diterima dari variabel `$id_walikelas`. Kondisi `WHERE id_walikelas = $id_walikelas` memastikan hanya data wali kelas dengan `id_walikelas` yang sesuai yang akan dihapus.
 
-**Penjelasan :**
+**Penjelasan Kode:**
 - Query SQL ini akan menghapus data dari tabel `tb_walikelas` dimana kolom `id_walikelas` cocok dengan ID yang diterima.
 - `$id_walikelas` adalah ID yang valid dan sudah dikonversi menjadi integer, sehingga query ini aman untuk dieksekusi.
 
@@ -769,8 +799,16 @@ $kelas_result = fetchData($conn, $kelas_query);
 ```
 
 ![foto](aset/2.55.png)
+#### Query yang digunakan
+```sql
+SELECT k.id_kelas, k.nama_kelas, w.nama_walikelas 
+FROM tb_kelas k 
+LEFT JOIN tb_walikelas w ON k.walikelas_id = w.id_walikelas 
+ORDER BY k.nama_kelas
+```
+**Penjelasan:**  Query ini digunakan untuk mengambil data kelas dari tabel `tb_kelas` beserta nama wali kelas yang mengajar di kelas tersebut. Tabel `tb_kelas` digabungkan dengan tabel `tb_walikelas` menggunakan `LEFT JOIN` berdasarkan `walikelas_id`. Hal ini memungkinkan pengambilan data kelas meskipun tidak ada wali kelas yang terkait. Data yang diambil meliputi `id_kelas`, `nama_kelas`, dan `nama_walikelas`, yang kemudian diurutkan berdasarkan `nama_kelas`.
 
-**Penjelasan:**
+**Penjelasan Kode :**
 - **Query SQL**:
     - **`SELECT k.id_kelas, k.nama_kelas, w.nama_walikelas`**: Memilih kolom yang akan ditampilkan (ID kelas, nama kelas, nama wali kelas).
     - **`LEFT JOIN`**: Menggabungkan tabel `tb_kelas` dengan tabel `tb_walikelas` untuk mendapatkan nama wali kelas berdasarkan `walikelas_id`.
@@ -912,8 +950,13 @@ $walikelas_data = fetchData($conn, "SELECT id_walikelas, nama_walikelas FROM tb_
 ```
 
 ![foto](aset/2.60.png)
+#### Query yang digunakan
+```sql
+SELECT id_walikelas, nama_walikelas FROM tb_walikelas
+```
+**Penjelasan:** Query ini digunakan untuk mengambil data `id_walikelas` dan `nama_walikelas` dari tabel `tb_walikelas`. Data ini akan digunakan untuk menampilkan daftar wali kelas yang tersedia. Hasil query disimpan dalam variabel `$walikelas_data` untuk digunakan dalam aplikasi, misalnya untuk memilih wali kelas atau menampilkan informasi wali kelas dalam antarmuka pengguna.
 
-**Penjelasan:**
+**Penjelasan Kode :**
 - Fungsi `fetchData()` akan menjalankan query untuk mengambil `id_walikelas` dan `nama_walikelas` dari tabel `tb_walikelas` dan menyimpannya dalam variabel `$walikelas_data`.
 
 ---
@@ -1033,8 +1076,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ```
 
 ![foto](aset/2.64.png)
+#### Query yang digunakan
+```sql
+INSERT INTO tb_kelas (nama_kelas, walikelas_id) VALUES (?, ?)
+```
+**Penjelasan:** Query ini digunakan untuk menambahkan data kelas baru ke dalam tabel `tb_kelas`. Data yang dimasukkan adalah `nama_kelas` dan `walikelas_id`, yang diambil dari input form menggunakan metode POST. Parameter-parameter ini diikat dengan menggunakan `bind_param` dengan tipe data `string` untuk `nama_kelas` dan `integer` untuk `walikelas_id`. Setelah query dieksekusi, pengguna akan diarahkan ke halaman utama (`index.php`) jika berhasil, atau kembali ke halaman tambah kelas (`tambah_kelas.php`) jika gagal.
 
-**Penjelasan:**
+**Penjelasan Kode :**
 - `$_POST` digunakan untuk mengambil data yang dikirim dari form.
 - Query `INSERT INTO tb_kelas` digunakan untuk menyimpan data kelas ke dalam tabel.
 - Jika proses berhasil, pengguna diarahkan kembali ke halaman utama. Jika gagal, pengguna diarahkan kembali ke halaman tambah kelas.
@@ -1071,9 +1119,18 @@ $kelas = fetchData($conn, "SELECT * FROM tb_kelas WHERE id_kelas = $id_kelas")[0
 $walikelas = fetchData($conn, "SELECT id_walikelas, nama_walikelas FROM tb_walikelas");
 ```
 ![foto](aset/2.66.png)
+#### Query yang digunakan
+```sql
+SELECT * FROM tb_kelas WHERE id_kelas = $id_kelas
+```
+**Penjelasan:** Query ini digunakan untuk mengambil data kelas berdasarkan `id_kelas` yang diterima dari parameter URL `$_GET['id']`. Hasil query akan memberikan semua kolom dari tabel `tb_kelas` untuk kelas yang sesuai dengan `id_kelas`. Data kelas ini kemudian digunakan dalam aplikasi untuk menampilkan atau memodifikasi informasi kelas.
 
+```sql
+SELECT id_walikelas, nama_walikelas FROM tb_walikelas
+```
+**Penjelasan:** Query kedua digunakan untuk mengambil `id_walikelas` dan `nama_walikelas` dari tabel `tb_walikelas`. Data ini akan digunakan untuk menampilkan daftar wali kelas yang tersedia, yang bisa dipilih untuk dikaitkan dengan kelas yang sedang diproses. Kedua hasil query ini disimpan dalam variabel `$kelas` dan `$walikelas` untuk digunakan lebih lanjut dalam aplikasi.
 
-**Penjelasan:**
+**Penjelasan Kode:**
 - Data pengguna yang saat ini login diambil melalui `$_SESSION['user']`, termasuk `role` mereka.
 - `$_GET['id']` digunakan untuk mendapatkan ID kelas yang akan diedit dari URL.
 - Fungsi `fetchData()` digunakan untuk mengambil data kelas berdasarkan `id_kelas` dan data wali kelas dari tabel `tb_walikelas` untuk dropdown.
@@ -1206,8 +1263,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ```
 
 ![foto](aset/2.70.png)
+#### Query yang digunakan
+```sql
+UPDATE tb_kelas SET nama_kelas = ?, walikelas_id = ? WHERE id_kelas = ?
+```
+**Penjelasan:** Query ini digunakan untuk memperbarui data kelas dalam tabel `tb_kelas`. Data yang diperbarui meliputi `nama_kelas` dan `walikelas_id`, berdasarkan `id_kelas` yang diterima dari input form. Parameter-parameter query diikat menggunakan `bind_param` dengan tipe `string` untuk `nama_kelas`, dan `integer` untuk `walikelas_id` serta `id_kelas`. Setelah eksekusi, pengguna akan diarahkan ke halaman utama (`index.php`) jika berhasil, atau ke halaman edit kelas (`edit_kelas.php`) jika terjadi kesalahan.
 
-**Penjelasan:**
+**Penjelasan Kode:**
 - Pada bagian ini, data yang diterima melalui POST diproses dan digunakan untuk memperbarui data kelas di database.
 - Query `UPDATE` digunakan untuk memperbarui nama kelas dan wali kelas sesuai dengan data yang dikirim.
 - Jika proses berhasil, pengguna akan diarahkan kembali ke halaman utama (`index.php`). Jika gagal, pengguna diarahkan kembali ke halaman `edit_kelas.php` untuk mencoba lagi.
@@ -1270,8 +1332,13 @@ $delete_query = "DELETE FROM tb_kelas WHERE id = $id_kelas";
 ```
 
 ![foto](aset/2.74.png)
+#### Query yang digunakan
+```sql
+DELETE FROM tb_kelas WHERE id = $id_kelas
+```
+**Penjelasan:** Query ini digunakan untuk menghapus data kelas dari tabel `tb_kelas` berdasarkan `id_kelas`. Kondisi `WHERE id = $id_kelas` memastikan hanya data kelas dengan `id` yang sesuai yang akan dihapus. Query ini biasanya dieksekusi setelah menerima parameter `id_kelas` dari input pengguna, seperti melalui URL atau form.
 
-**Penjelasan:**
+**Penjelasan Kode:**
 - `DELETE FROM tb_kelas WHERE id = $id_kelas` adalah perintah SQL untuk menghapus data kelas yang ID-nya sama dengan `$id_kelas`.
 - Pastikan query ini hanya dieksekusi setelah memvalidasi ID untuk mencegah kesalahan penghapusan data.
 
