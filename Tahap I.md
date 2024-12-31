@@ -1,17 +1,3 @@
-
-# Struktur Tabel dan Relasinya
-1. **users**: Menyimpan informasi pengguna aplikasi.
-2. **kasus**: Menyimpan data kasus yang dikelola walikelas dan admin.
-3. **siswa**: Menyimpan data siswa yang terhubung dengan kasus atau kelas.
-4. **kelas**: Menyimpan informasi kelas yang dikelola oleh admin.
-5. **walikelas**: Menyimpan informasi wali kelas dan relasinya dengan kelas yang dikelola oleh admin.
-
-Relasi antar tabel:
-- **walikelas** memiliki hubungan **one-to-one** dengan **kelas**.
-- **kelas** memiliki hubungan **one-to-many** dengan **siswa**.
-- **siswa** memiliki hubungan **one-to-many** dengan **kasus**.
-
-# Langkah Penyelesaian
 ## Pembuatan Database dan Tabel
 
 ### Pembuatan Database 
@@ -19,7 +5,7 @@ Relasi antar tabel:
 ```sql
 CREATE DATABASE db_sekolah;
 ```
-Pertama-tama, buatlah database baru dengan nama yang sesuai, misalnya `db_sekolah`.
+Pertama-tama, buatlah database baru dengan nama yang sesuai, `db_sekolah`.
 
  Buka phpMyAdmin dan pilih new pada menu sidebar
 ![foto](aset/1.1.png) 
@@ -362,15 +348,14 @@ $kasus_result = fetchData($conn, $kasus_query);
 
 ![](aset/1.64.png)
 
-###### Query yang digunakan
+#### Query yang digunakan
 ```sql
 SELECT k.id_kasus, k.siswa_id, k.deskripsi_kasus, k.tanggal_kasus, s.nama_lengkap
 FROM tb_kasus k
 LEFT JOIN tb_siswa s ON k.siswa_id = s.id
 ORDER BY k.tanggal_kasus DESC;
 ```
-**Penjelasan Query :**
-Query ini menampilkan data kasus siswa, termasuk deskripsi kasus dan nama siswa, dengan menggabungkan informasi dari tabel **`tb_kasus`** dan **`tb_siswa`**. Hasilnya diurutkan berdasarkan tanggal kasus yang terbaru.
+**Penjelasan :** Query ini menampilkan data kasus siswa, termasuk deskripsi kasus dan nama siswa, dengan menggabungkan informasi dari tabel **`tb_kasus`** dan **`tb_siswa`**. Hasilnya diurutkan berdasarkan tanggal kasus yang terbaru.
 
 **Penjelasan Kode:**
 - **`$kasus_query`**: Ini adalah query SQL yang mengambil semua data kasus dari tabel `tb_kasus` dan menghubungkannya dengan data siswa dari tabel `tb_siswa` menggunakan `LEFT JOIN`. Data diurutkan berdasarkan tanggal kasus.
@@ -667,7 +652,6 @@ table th, table td {
 **Sesudah :**
 ![](aset/1.66.png)
 
-
 ### Membuat Halaman Tambah Data Kasus
 Pertama-tama, buat file baru dengan nama `tambah_kasus.php` di dalam folder `views/kasus/`. File ini akan digunakan untuk menampilkan formulir yang memungkinkan pengguna memilih siswa, memasukkan deskripsi kasus, dan memilih tanggal kasus.
 
@@ -696,6 +680,11 @@ $result = mysqli_query($conn, $query);
 ```
 
 ![](aset/1.75.png)
+#### Query yang digunakan
+```sql
+SELECT id, nama_lengkap FROM tb_siswa
+```
+**Penjelasan :** Query ini digunakan untuk mengambil data dari tabel `tb_siswa`, khususnya kolom `id` dan `nama_lengkap`. Hasil query ini akan mengembalikan daftar ID dan nama lengkap siswa yang ada di tabel tersebut.
 
 **Penjelasan**:
 - **Query SQL** digunakan untuk mengambil data siswa (id dan nama lengkap) dari tabel **`tb_siswa`**.
@@ -809,6 +798,12 @@ $conn->close();
 ```
 
 ![](aset/1.77.png)
+#### Query yang digunakan
+
+```sql
+INSERT INTO tb_kasus (siswa_id, deskripsi_kasus, tanggal_kasus) VALUES (?, ?, ?)
+```
+**Penjelasan :** Query ini digunakan untuk menambahkan data baru ke dalam tabel `tb_kasus`. Kolom `siswa_id`, `deskripsi_kasus`, dan `tanggal_kasus` akan diisi dengan nilai yang diberikan melalui parameter (`?`). Perintah `INSERT INTO` akan menambahkan baris baru dengan data tersebut ke dalam tabel.
 
 **Penjelasan :**
 - **`require_once __DIR__ . '/../../includes/db.php';`**: Menghubungkan file untuk konfigurasi database agar dapat digunakan dalam file ini.
@@ -816,7 +811,6 @@ $conn->close();
 - **`$query = "INSERT INTO tb_kasus (siswa_id, deskripsi_kasus, tanggal_kasus) VALUES (?, ?, ?)";`**: Menyusun query SQL untuk memasukkan data kasus baru.
 
 ---
-
 ### Membuat Halaman Edit Data Kasus  
 Pertama-tama, buat file baru bernama **`edit_kasus.php`** di dalam folder **`views/kasus`**. File ini digunakan untuk menampilkan formulir pengeditan kasus berdasarkan data yang sudah adadi database.
 
@@ -858,6 +852,11 @@ if (isset($_GET['id'])) {
 ```
 
 ![](aset/1.79.png)
+#### Query yang digunakan
+```sql
+SELECT * FROM tb_kasus WHERE id_kasus = $id_kasus
+```
+**Penjelasan :** Query ini digunakan untuk mengambil semua data (`*`) dari tabel `tb_kasus` yang memiliki `id_kasus` sesuai dengan nilai yang diberikan. Kondisi `WHERE id_kasus = $id_kasus` memastikan hanya baris dengan `id_kasus` yang sesuai yang akan diambil.
 
 **Penjelasan :**
 - **`if (isset($_GET['id'])) {`**: Mengecek apakah parameter `id` ada dalam URL.
@@ -875,6 +874,12 @@ $result_siswa = mysqli_query($conn, $query_siswa);
 ```
 
 ![](aset/1.80.png)
+
+#### Query yang digunakan
+```sql
+SELECT id, nama_lengkap FROM tb_siswa
+```
+**Penjelasan :** Query ini digunakan untuk mengambil data dari tabel `tb_siswa`. Kolom yang diambil adalah `id` dan `nama_lengkap`, yang akan mengembalikan daftar ID dan nama lengkap siswa yang ada dalam tabel.
 
 **Penjelasan :**
 - **`mysqli_query($conn, $query_siswa)`**: Menjalankan query SQL untuk mengambil semua data siswa.
@@ -961,11 +966,17 @@ header("Location: ./index.php");
 ```
 
 ![](aset/1.82.png)
+#### Query yang digunakan
+```sql
+UPDATE tb_kasus SET siswa_id = ?, deskripsi_kasus = ?, tanggal_kasus = ? WHERE id_kasus = ?
+```
+**Penjelasan :** Query ini digunakan untuk memperbarui data pada tabel `tb_kasus`. Kolom `siswa_id`, `deskripsi_kasus`, dan `tanggal_kasus` akan diubah sesuai dengan nilai yang diberikan, sementara kondisi `WHERE id_kasus = ?` memastikan pembaruan hanya pada baris dengan `id_kasus` yang sesuai.
 
 **Penjelasan :**
 - **`$_SERVER['REQUEST_METHOD']`**: Mengecek apakah request menggunakan metode POST.
 - **Validasi**: Memastikan semua input diisi.
 - **Query Update**: Menggunakan `prepare` dan `bind_param` untuk memperbarui data kasus.
+
 ### Membuat Halaman Hapus Data Kasus
 Pertama-tama, buat file bernama **`hapus_kasus.php`** di dalam folder **`views/kasus`**. File ini bertugas untuk menghapus data kasus berdasarkan ID yang diterima melalui parameter URL.
 
@@ -1026,6 +1037,12 @@ $delete_query = "DELETE FROM tb_kasus WHERE id_kasus = $id_kasus";
 ```
 
 ![](aset/1.86.png)
+
+#### Query yang digunakan
+```sql
+DELETE FROM tb_kasus WHERE id_kasus = $id_kasus
+```
+**Penjelasan :** Query ini digunakan untuk menghapus data dari tabel `tb_kasus` berdasarkan `id_kasus`. Kondisi `WHERE id_kasus = $id_kasus` memastikan hanya baris dengan `id_kasus` yang sesuai dengan nilai yang diberikan yang akan dihapus.
 
 **Penjelasan**:
 - **Query SQL**: Perintah **`DELETE`** digunakan untuk menghapus data pada tabel **`tb_kasus`** yang memiliki nilai **`id_kasus`** tertentu.
